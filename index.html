@@ -1,0 +1,639 @@
+<!doctype html>
+<html class="dark" lang="vi">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>AURA NOVA - Next-Gen Cinema Platform</title>
+        <meta content="AURA NOVA Cinema - Khám phá điện ảnh chuẩn rạp 4K IMAX, âm thanh vòm Dolby Atmos và Trợ lý AI NOVA." name="description" />
+        <load src="src/components/head-resources.html" />
+    </head>
+    <body class="bg-[#07080E] font-body-md text-on-surface antialiased selection:bg-primary selection:text-black">
+        <!-- Left Sidebar Navigation Rail & Top Utility Header -->
+        <load src="src/components/header.html" />
+
+        <!-- Main Bento Dashboard Canvas -->
+        <main class="w-full md:pl-20 pt-16 md:pt-20 min-h-screen bg-[#07080E] text-on-surface pb-28 md:pb-16 overflow-x-hidden">
+            <div class="max-w-[1680px] mx-auto px-4 md:px-8 py-6 flex flex-col gap-10">
+
+                <!-- ==================== SECTION 1: ASYMMETRIC 3-COLUMN BENTO HERO SPOTLIGHT ==================== -->
+                <section class="grid grid-cols-12 gap-6 w-full" id="hero-bento-stage">
+                    <!-- Main Cinema Stage (8 Cols on Desktop) -->
+                    <div class="col-span-12 lg:col-span-8 relative rounded-3xl overflow-hidden glass-panel border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_35px_rgba(0,242,254,0.18)] min-h-[480px] md:min-h-[580px] flex flex-col justify-end p-6 md:p-10 group">
+                        <!-- Ambient Spotlight Glow Behind Stage -->
+                        <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+                        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-secondary/20 rounded-full blur-[140px] pointer-events-none"></div>
+
+                        <!-- Active Video Stream / Poster Backdrop -->
+                        <div
+                            id="hero-backdrop-img"
+                            class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                            style="background-image: url('/images/movies/tears-of-steel_backdrop.jpg');"
+                        ></div>
+                        <video
+                            id="hero-active-video"
+                            poster="/images/movies/tears-of-steel_backdrop.jpg"
+                            class="absolute inset-0 w-full h-full object-cover hidden z-10"
+                            playsinline
+                            muted
+                            loop
+                        ></video>
+
+                        <!-- Dark Scrim Gradient Overlays -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#07080E] via-[#07080E]/70 to-transparent pointer-events-none z-10"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#07080E]/90 via-[#07080E]/40 to-transparent pointer-events-none z-10 w-full md:w-3/4"></div>
+
+                        <!-- Hero Content Overlay -->
+                        <div class="relative z-20 flex flex-col max-w-2xl gap-3">
+                            <!-- Badges Row -->
+                            <div class="flex flex-wrap items-center gap-2 mb-1">
+                                <span class="px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/40 font-mono text-[11px] font-bold tracking-wider flex items-center gap-1 shadow-[0_0_12px_rgba(0,242,254,0.4)]">
+                                    <span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                                    #1 SPOTLIGHT HÔM NAY
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md text-amber-300 font-bold text-[11px] font-mono flex items-center gap-1">
+                                    ★ 9.4 IMDb
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-white/[0.06] text-white/90 text-[11px] font-mono">
+                                    99% PHÙ HỢP
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-white/[0.06] text-white/90 text-[11px] font-mono">
+                                    IMAX 70MM • 4K HDR
+                                </span>
+                            </div>
+
+                            <!-- Title -->
+                            <h1 id="hero-title" class="font-headline font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+                                Tears of Steel <span class="text-aura-gradient">: Cybernetic Awakening</span>
+                            </h1>
+
+                            <!-- Synopsis -->
+                            <p id="hero-synopsis" class="text-on-surface-variant font-body-md text-sm md:text-base line-clamp-2 md:line-clamp-3 leading-relaxed drop-shadow">
+                                Trong đại đô thị tương lai hậu tận thế nơi tàn tích robot khổng lồ bao trùm thế giới, nhóm phi công điều khiển cánh tay sinh học lượng tử nỗ lực kết nối lại ký ức trước khi pháo đài cuối cùng sụp đổ.
+                            </p>
+
+                            <!-- Actions & Live Audio Toggle -->
+                            <div class="flex flex-wrap items-center gap-3 pt-3">
+                                <button
+                                    id="hero-play-main-btn"
+                                    type="button"
+                                    class="flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-primary hover:bg-white text-black font-label-lg font-bold text-sm tracking-wide shadow-[0_0_28px_rgba(0,242,254,0.6)] hover:shadow-[0_0_35px_rgba(0,242,254,0.9)] transition-all cursor-pointer active:scale-95"
+                                    onclick="launchCinemaFromHero()"
+                                >
+                                    <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                    <span>Khởi Chiếu Rạp 4K</span>
+                                </button>
+
+                                <button
+                                    id="hero-preview-toggle-btn"
+                                    type="button"
+                                    class="flex items-center gap-2 px-5 py-3 rounded-2xl bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-white font-label-lg font-semibold text-sm backdrop-blur-xl transition-all cursor-pointer"
+                                    onclick="toggleHeroVideoPreview()"
+                                >
+                                    <span id="hero-preview-icon" class="material-symbols-outlined text-[20px] text-primary">smart_display</span>
+                                    <span id="hero-preview-label">Xem Trực Tiếp</span>
+                                </button>
+
+                                <button
+                                    id="hero-mute-toggle-btn"
+                                    type="button"
+                                    class="hidden w-11 h-11 rounded-2xl bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-white flex items-center justify-center transition-all cursor-pointer"
+                                    title="Bật/Tắt Âm Thanh"
+                                    onclick="toggleHeroAudio()"
+                                >
+                                    <span id="hero-mute-icon" class="material-symbols-outlined text-[20px]">volume_off</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="w-11 h-11 rounded-2xl bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-white flex items-center justify-center transition-all cursor-pointer"
+                                    title="Thêm vào Vault Của Tôi"
+                                    onclick="toggleListHero(this)"
+                                >
+                                    <span class="material-symbols-outlined text-[20px]">bookmark_add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side Spotlight Queue (4 Cols on Desktop) -->
+                    <div class="col-span-12 lg:col-span-4 flex flex-col gap-4">
+                        <div class="flex items-center justify-between px-1">
+                            <span class="font-headline font-bold text-white text-base tracking-tight flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-[20px]">featured_play_list</span>
+                                Hàng Chờ Spotlight
+                            </span>
+                            <span class="text-[11px] font-mono text-primary/80 uppercase">Click để đổi phim</span>
+                        </div>
+
+                        <!-- Spotlight Card 1 -->
+                        <div
+                            class="spotlight-queue-card p-3 rounded-2xl glass-panel hover:bg-white/[0.08] border border-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer flex items-center gap-3.5 group/card active:scale-[0.99]"
+                            onclick="swapHeroSpotlight(0)"
+                        >
+                            <div class="relative w-20 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-surface shadow-md">
+                                <img src="/images/movies/deep-abyss-expedition_poster.jpg" alt="Deep Abyss"
+                                    class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                                />
+                                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-primary font-bold">4K</span>
+                            </div>
+                            <div class="flex flex-col flex-1 min-w-0">
+                                <span class="text-amber-300 text-[11px] font-mono font-bold">★ 9.2 IMDb • 98% Phù hợp</span>
+                                <h4 class="font-headline font-bold text-white text-[15px] group-hover/card:text-primary transition-colors truncate">
+                                    The Silent Abyss
+                                </h4>
+                                <p class="text-on-surface-variant text-[12px] line-clamp-2 leading-relaxed">
+                                    Thám hiểm rãnh vực Mariana đối đầu cổ vật thủy quái nguyên sinh.
+                                </p>
+                            </div>
+                            <span class="material-symbols-outlined text-white/30 group-hover/card:text-primary group-hover/card:translate-x-1 transition-all">chevron_right</span>
+                        </div>
+
+                        <!-- Spotlight Card 2 -->
+                        <div
+                            class="spotlight-queue-card p-3 rounded-2xl glass-panel hover:bg-white/[0.08] border border-white/10 hover:border-secondary/50 transition-all duration-300 cursor-pointer flex items-center gap-3.5 group/card active:scale-[0.99]"
+                            onclick="swapHeroSpotlight(1)"
+                        >
+                            <div class="relative w-20 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-surface shadow-md">
+                                <img
+                                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&auto=format&fit=crop&q=85"
+                                    alt="Sintel: The Dragon Chronicles"
+                                    class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                                />
+                                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-secondary font-bold">IMAX</span>
+                            </div>
+                            <div class="flex flex-col flex-1 min-w-0">
+                                <span class="text-amber-300 text-[11px] font-mono font-bold">★ 9.5 IMDb • 99% Phù hợp</span>
+                                <h4 class="font-headline font-bold text-white text-[15px] group-hover/card:text-secondary transition-colors truncate">
+                                    Sintel: The Dragon Chronicles
+                                </h4>
+                                <p class="text-on-surface-variant text-[12px] line-clamp-2 leading-relaxed">
+                                    Hành trình cô độc vượt qua hoang mạc băng giá tìm kiếm người bạn rồng nhỏ Scales.
+                                </p>
+                            </div>
+                            <span class="material-symbols-outlined text-white/30 group-hover/card:text-secondary group-hover/card:translate-x-1 transition-all">chevron_right</span>
+                        </div>
+
+                        <!-- Spotlight Card 3 -->
+                        <div
+                            class="spotlight-queue-card p-3 rounded-2xl glass-panel hover:bg-white/[0.08] border border-white/10 hover:border-tertiary/50 transition-all duration-300 cursor-pointer flex items-center gap-3.5 group/card active:scale-[0.99]"
+                            onclick="swapHeroSpotlight(2)"
+                        >
+                            <div class="relative w-20 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-surface shadow-md">
+                                <img
+                                    src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&auto=format&fit=crop&q=85"
+                                    alt="Big Buck Bunny: The Great Escape"
+                                    class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                                />
+                                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-tertiary font-bold">HDR</span>
+                            </div>
+                            <div class="flex flex-col flex-1 min-w-0">
+                                <span class="text-amber-300 text-[11px] font-mono font-bold">★ 9.6 IMDb • Kiệt Tác 3D</span>
+                                <h4 class="font-headline font-bold text-white text-[15px] group-hover/card:text-tertiary transition-colors truncate">
+                                    Big Buck Bunny: The Great Escape
+                                </h4>
+                                <p class="text-on-surface-variant text-[12px] line-clamp-2 leading-relaxed">
+                                    Chú thỏ khổng lồ tốt bụng và cuộc phản công hài hước chống lại nhóm sóc tinh quái.
+                                </p>
+                            </div>
+                            <span class="material-symbols-outlined text-white/30 group-hover/card:text-tertiary group-hover/card:translate-x-1 transition-all">chevron_right</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== SECTION 2: BENTO HIGHLIGHTS SHOWCASE ==================== -->
+                <section class="flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-6 bg-gradient-to-b from-primary to-secondary rounded-full"></span>
+                            <h2 class="font-headline font-black text-2xl md:text-3xl text-white tracking-tight">
+                                Tiêu Điểm Bento • Tuyển Tập Đặc Sắc
+                            </h2>
+                        </div>
+                        <span class="text-xs font-mono text-on-surface-variant hidden sm:inline">Phát hành chuẩn 4K Ultra HD</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                        <!-- Bento Item 1: Large Featured Card (Span 2 cols on lg) -->
+                        <div
+                            class="md:col-span-2 lg:col-span-2 relative rounded-3xl overflow-hidden glass-panel border border-white/10 group/bento cursor-pointer min-h-[300px] flex flex-col justify-end p-6 hover:border-primary/40 transition-all duration-300 shadow-xl"
+                            onclick="openCinemaModal('Neural Drift: Reckoning', 'Đặc vụ Vance khám phá bí mật cấy ghép ký ức giả tạo.', '99%', '2026', '4 Seasons', 'Sci-Fi • Crime • 4K')"
+                        >
+                            <img
+                                src="/images/movies/neural-drift-reckoning_backdrop.jpg"
+                                alt="Neural Drift"
+                                class="absolute inset-0 w-full h-full object-cover group-hover/bento:scale-105 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#07080E] via-[#07080E]/60 to-transparent"></div>
+                            <div class="relative z-10 flex flex-col gap-2">
+                                <span class="px-2.5 py-1 rounded-full bg-secondary/30 text-secondary border border-secondary/40 font-mono text-[10px] font-bold w-fit">SERIES NGUYÊN BẢN</span>
+                                <h3 class="font-headline font-bold text-2xl text-white group-hover/bento:text-primary transition-colors">Neural Drift: Reckoning</h3>
+                                <p class="text-on-surface-variant text-xs line-clamp-2">Theo chân thanh tra Vance trong cuộc truy lùng tập đoàn thao túng ký ức nhân loại tại New Neo-Tokyo.</p>
+                                <div class="flex items-center gap-2 pt-2">
+                                    <span class="px-2 py-0.5 rounded bg-white/10 text-[11px] font-mono text-white">4K HDR</span>
+                                    <span class="px-2 py-0.5 rounded bg-white/10 text-[11px] font-mono text-white">DOLBY ATMOS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bento Item 2: Shadow Protocol -->
+                        <div
+                            class="relative rounded-3xl overflow-hidden glass-panel border border-white/10 group/bento cursor-pointer min-h-[300px] flex flex-col justify-end p-6 hover:border-primary/40 transition-all duration-300 shadow-xl"
+                            onclick="openCinemaModal('Shadow Protocol: Rain Assassin', 'Sát thủ ẩn danh đối đầu nghiệp đoàn ngầm xuyên biên giới.', '96%', '2025', '2h 12m', 'Action • Thriller')"
+                        >
+                            <img
+                                src="/images/movies/shadow-protocol_backdrop.jpg"
+                                alt="Shadow Protocol"
+                                class="absolute inset-0 w-full h-full object-cover group-hover/bento:scale-105 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#07080E] via-[#07080E]/60 to-transparent"></div>
+                            <div class="relative z-10 flex flex-col gap-1.5">
+                                <span class="px-2.5 py-1 rounded-full bg-primary/20 text-primary border border-primary/40 font-mono text-[10px] font-bold w-fit">BOM TẤN HÀNH ĐỘNG</span>
+                                <h3 class="font-headline font-bold text-lg text-white group-hover/bento:text-primary transition-colors">Shadow Protocol</h3>
+                                <p class="text-on-surface-variant text-xs line-clamp-2">Vũ điệu cận chiến dưới màn mưa axit.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bento Item 3: Hyper Velocity -->
+                        <div
+                            class="relative rounded-3xl overflow-hidden glass-panel border border-white/10 group/bento cursor-pointer min-h-[300px] flex flex-col justify-end p-6 hover:border-primary/40 transition-all duration-300 shadow-xl"
+                            onclick="openCinemaModal('Hyper Velocity: Supersonic Midnight', 'Đua xe từ trường siêu âm xuyên màn đêm Tokyo.', '95%', '2025', '1h 58m', 'Action • Racing')"
+                        >
+                            <img
+                                src="/images/movies/hyperdrive-velocity_backdrop.jpg"
+                                alt="Hyper Velocity"
+                                class="absolute inset-0 w-full h-full object-cover group-hover/bento:scale-105 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#07080E] via-[#07080E]/60 to-transparent"></div>
+                            <div class="relative z-10 flex flex-col gap-1.5">
+                                <span class="px-2.5 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 font-mono text-[10px] font-bold w-fit">SIÊU TỐC ĐỘ</span>
+                                <h3 class="font-headline font-bold text-lg text-white group-hover/bento:text-amber-300 transition-colors">Hyper Velocity</h3>
+                                <p class="text-on-surface-variant text-xs line-clamp-2">Đường đua điện tử rực sáng âm hưởng synthwave.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== SECTION 3: MOOD & GENRE DISCOVERY MATRIX ==================== -->
+                <section class="flex flex-col gap-5">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-6 bg-tertiary rounded-full"></span>
+                            <h2 class="font-headline font-black text-2xl md:text-3xl text-white tracking-tight">
+                                Khám Phá Theo Cảm Xúc &amp; Thể Loại
+                            </h2>
+                        </div>
+
+                        <!-- Mood Filter Tabs -->
+                        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="mood-filter-container">
+                            <button class="mood-tab-btn active px-4 py-1.5 rounded-full text-xs font-bold bg-primary text-black transition-all cursor-pointer" onclick="filterByMood('all', this)">
+                                Tất Cả
+                            </button>
+                            <button class="mood-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white transition-all cursor-pointer whitespace-nowrap" onclick="filterByMood('scifi', this)">
+                                🚀 Sci-Fi Hại Não
+                            </button>
+                            <button class="mood-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white transition-all cursor-pointer whitespace-nowrap" onclick="filterByMood('action', this)">
+                                💥 Kích Thích Adrenaline
+                            </button>
+                            <button class="mood-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white transition-all cursor-pointer whitespace-nowrap" onclick="filterByMood('space', this)">
+                                🌌 Khám Phá Vũ Trụ
+                            </button>
+                            <button class="mood-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white transition-all cursor-pointer whitespace-nowrap" onclick="filterByMood('fantasy', this)">
+                                ✨ Kỳ Ảo Nghệ Thuật
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Responsive Movie Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="movie-grid-container">
+                        <!-- Card 1 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Tears of Steel: 2099', 'Phi công mạng giải mã lõi AI lượng tử.', '99%', '2026', '2h 42m', 'Sci-Fi • 4K')" data-genre="scifi">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/tears-of-steel_poster.jpg" alt="Neon Cyber" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-primary text-[10px] font-mono font-bold">★ 9.4 IMDb</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Tears of Steel</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('The Silent Abyss', 'Thám hiểm rãnh Mariana.', '98%', '2026', '2h 25m', 'Sci-Fi • Adventure')" data-genre="scifi">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/deep-abyss-expedition_poster.jpg" alt="Silent Abyss" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-amber-300 text-[10px] font-mono font-bold">★ 9.2 IMDb</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">The Silent Abyss</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Sintel: The Dragon Chronicles', 'Vượt tinh vân Orion giải mã cổng sao.', '99%', '2025', '2h 55m', 'Space • IMAX')" data-genre="space">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/sintel_poster.jpg" alt="Sintel: The Dragon Chronicles" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-secondary text-[10px] font-mono font-bold">★ 9.5 IMAX</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Sintel: The Dragon Chronicles</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Shadow Protocol', 'Sát thủ ẩn danh đối đầu nghiệp đoàn.', '96%', '2025', '2h 12m', 'Action')" data-genre="action">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/shadow-protocol_poster.jpg" alt="Shadow Protocol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-primary text-[10px] font-mono font-bold">★ 9.0 Action</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Shadow Protocol</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Big Buck Bunny: The Great Escape', 'Hàn gắn vũ trụ trên cổng tinh tú.', '99%', '2026', '2h 08m', 'Animation • Fantasy')" data-genre="fantasy">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/big-buck-bunny_poster.jpg" alt="Big Buck Bunny: The Great Escape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-tertiary text-[10px] font-mono font-bold">★ 9.6 Fantasy</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Big Buck Bunny: The Great Escape</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Hyper Velocity', 'Đua xe từ trường siêu âm.', '95%', '2025', '1h 58m', 'Action • Racing')" data-genre="action">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/hyperdrive-velocity_poster.jpg" alt="Hyper Velocity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-amber-300 text-[10px] font-mono font-bold">★ 8.9 Racing</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Hyper Velocity</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== SECTION 4: HOLOGRAPHIC TOP CHARTS ==================== -->
+                <section class="flex flex-col gap-4">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-6 bg-secondary rounded-full"></span>
+                        <h2 class="font-headline font-black text-2xl md:text-3xl text-white tracking-tight">
+                            Bảng Xếp Hạng Holographic Top 10
+                        </h2>
+                    </div>
+
+                    <div class="flex gap-6 overflow-x-auto no-scrollbar py-4 px-1" id="top-charts-slider">
+                        <!-- Rank 1 -->
+                        <div class="flex-shrink-0 flex items-center w-72 md:w-80 group/rank cursor-pointer" onclick="openCinemaModal('Tears of Steel: 2099', 'Phi công mạng giải mã lõi AI lượng tử.', '99%', '2026', '2h 42m', 'Sci-Fi • 4K')">
+                            <span class="font-headline font-black text-[120px] md:text-[140px] text-white/[0.08] group-hover/rank:text-primary/70 transition-colors leading-none select-none -mr-8 z-0">01</span>
+                            <div class="relative w-48 md:w-56 h-72 rounded-2xl overflow-hidden bg-surface-container shadow-2xl z-10 flex flex-col justify-end p-4 border border-white/10 group-hover/rank:border-primary/50 group-hover/rank:scale-105 transition-all duration-300">
+                                <img src="/images/movies/tears-of-steel_poster.jpg" alt="Top 1" class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+                                <div class="relative z-10">
+                                    <span class="text-primary text-[10px] font-mono font-bold">#1 THỊNH HÀNH</span>
+                                    <h4 class="font-headline font-bold text-white text-base">Tears of Steel</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rank 2 -->
+                        <div class="flex-shrink-0 flex items-center w-72 md:w-80 group/rank cursor-pointer" onclick="openCinemaModal('The Silent Abyss', 'Thám hiểm rãnh Mariana.', '98%', '2026', '2h 25m', 'Sci-Fi • Adventure')">
+                            <span class="font-headline font-black text-[120px] md:text-[140px] text-white/[0.08] group-hover/rank:text-secondary/70 transition-colors leading-none select-none -mr-8 z-0">02</span>
+                            <div class="relative w-48 md:w-56 h-72 rounded-2xl overflow-hidden bg-surface-container shadow-2xl z-10 flex flex-col justify-end p-4 border border-white/10 group-hover/rank:border-secondary/50 group-hover/rank:scale-105 transition-all duration-300">
+                                <img src="/images/movies/deep-abyss-expedition_poster.jpg" alt="Top 2" class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+                                <div class="relative z-10">
+                                    <span class="text-secondary text-[10px] font-mono font-bold">#2 RẠP CHIẾU</span>
+                                    <h4 class="font-headline font-bold text-white text-base">The Silent Abyss</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rank 3 -->
+                        <div class="flex-shrink-0 flex items-center w-72 md:w-80 group/rank cursor-pointer" onclick="openCinemaModal('Sintel: The Dragon Chronicles', 'Vượt tinh vân Orion giải mã cổng sao.', '99%', '2025', '2h 55m', 'Space • IMAX')">
+                            <span class="font-headline font-black text-[120px] md:text-[140px] text-white/[0.08] group-hover/rank:text-tertiary/70 transition-colors leading-none select-none -mr-8 z-0">03</span>
+                            <div class="relative w-48 md:w-56 h-72 rounded-2xl overflow-hidden bg-surface-container shadow-2xl z-10 flex flex-col justify-end p-4 border border-white/10 group-hover/rank:border-tertiary/50 group-hover/rank:scale-105 transition-all duration-300">
+                                <img src="/images/movies/sintel_poster.jpg" alt="Top 3" class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+                                <div class="relative z-10">
+                                    <span class="text-tertiary text-[10px] font-mono font-bold">#3 KHÁN GIẢ BÌNH CHỌN</span>
+                                    <h4 class="font-headline font-bold text-white text-base">Sintel: The Dragon Chronicles</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- ==================== CINEMA THEATER MODAL ==================== -->
+        <div
+            id="trailer-modal"
+            class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-2xl opacity-0 pointer-events-none transition-all duration-300 select-none"
+        >
+            <div
+                id="modal-box"
+                class="relative w-full max-w-5xl rounded-3xl overflow-hidden glass-panel border border-white/10 shadow-[0_25px_70px_rgba(0,0,0,0.95),0_0_35px_rgba(0,242,254,0.3)] transform scale-95 transition-transform duration-300 flex flex-col"
+            >
+                <!-- Video Stage -->
+                <div class="relative w-full aspect-video bg-black flex items-center justify-center group/player" id="modal-video-container">
+                    <img id="modal-backdrop-img" class="absolute inset-0 w-full h-full object-cover hidden" alt="Backdrop" />
+                    <video id="modal-video-player" class="absolute inset-0 w-full h-full object-contain" playsinline></video>
+                    
+                    <!-- Cinema HUD Dock -->
+                    <load src="src/components/cinema-player-dock.html" prefix="modal" />
+                </div>
+
+                <!-- Info Drawer -->
+                <div class="p-6 md:p-8 flex flex-col gap-3 bg-[#0a0d18]">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span id="modal-match" class="px-2.5 py-0.5 rounded-full bg-primary/20 text-primary text-xs font-mono font-bold">99% MATCH</span>
+                            <span id="modal-year" class="text-white/70 text-xs font-mono">2026</span>
+                            <span id="modal-runtime" class="text-white/70 text-xs font-mono">2h 42m</span>
+                        </div>
+                        <span id="modal-genres" class="text-xs text-secondary font-mono">Sci-Fi • 4K</span>
+                    </div>
+                    <h3 id="modal-title" class="font-headline font-black text-2xl text-white">Tears of Steel: 2099</h3>
+                    <p id="modal-desc" class="text-on-surface-variant text-sm leading-relaxed">Mô tả phim chi tiết...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <load src="src/components/footer.html" />
+
+        <!-- Page Dynamic Scripts -->
+        <script type="module" src="/js/nav.js"></script>
+        <script type="module" src="/js/cinema-ai.js"></script>
+        <script>
+            // Spotlight Queue items
+            const SPOTLIGHT_ITEMS = [
+                {
+                    title: 'The Silent Abyss: Deep Trench',
+                    synopsis: 'Mười ngàn mét dưới đáy rãnh Mariana, nhóm tàu ngầm thám hiểm đối đầu sinh vật cổ đại canh giữ nguồn năng lượng địa nhiệt bí ẩn.',
+                    poster: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&auto=format&fit=crop&q=85',
+                    video: '/api/stream/deep_abyss_expedition.mp4'
+                },
+                {
+                    title: 'Sintel: The Dragon Chronicles: Celestial Gate',
+                    synopsis: 'Chiến hạm thám hiểm băng qua tinh vân Orion để giải mã tàn tích của một nền văn minh sơ khai đã kiến tạo mạng lưới lỗ sâu vũ trụ.',
+                    poster: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1600&auto=format&fit=crop&q=85',
+                    video: '/api/stream/celestial_starlight.mp4'
+                },
+                {
+                    title: 'Big Buck Bunny: The Great Escape: Aurora',
+                    synopsis: 'Trên ngôi đền lơ lửng giữa biển sao, thiếu nữ cung thủ linh hồn cùng linh thú huyền bí bước vào chuyến phiêu lưu hàn gắn vũ trụ rạn nứt.',
+                    poster: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600&auto=format&fit=crop&q=85',
+                    video: '/api/stream/animated_woodland_escape.mp4'
+                }
+            ];
+
+            let isPreviewPlaying = false;
+            let currentSpotlightIndex = -1;
+
+            window.swapHeroSpotlight = function(index) {
+                const item = SPOTLIGHT_ITEMS[index];
+                if (!item) return;
+
+                currentSpotlightIndex = index;
+                const titleEl = document.getElementById('hero-title');
+                const synEl = document.getElementById('hero-synopsis');
+                const bgEl = document.getElementById('hero-backdrop-img');
+                const vidEl = document.getElementById('hero-active-video');
+
+                if (titleEl) titleEl.innerText = item.title;
+                if (synEl) synEl.innerText = item.synopsis;
+                if (bgEl) bgEl.style.backgroundImage = `url('${item.poster}')`;
+
+                if (vidEl) {
+                    vidEl.src = item.video;
+                    if (isPreviewPlaying) {
+                        vidEl.play().catch(() => {});
+                    }
+                }
+            };
+
+            window.toggleHeroVideoPreview = function() {
+                const vidEl = document.getElementById('hero-active-video');
+                const bgEl = document.getElementById('hero-backdrop-img');
+                const label = document.getElementById('hero-preview-label');
+                const icon = document.getElementById('hero-preview-icon');
+                const muteBtn = document.getElementById('hero-mute-toggle-btn');
+
+                if (!vidEl) return;
+
+                if (!isPreviewPlaying) {
+                    if (!vidEl.src) {
+                        vidEl.src = '/api/stream/celestial_starlight.mp4';
+                    }
+                    vidEl.classList.remove('hidden');
+                    if (bgEl) bgEl.classList.add('opacity-0');
+                    vidEl.play().catch(() => {});
+                    isPreviewPlaying = true;
+                    if (label) label.innerText = 'Dừng Xem';
+                    if (icon) icon.innerText = 'pause';
+                    if (muteBtn) muteBtn.classList.remove('hidden');
+                } else {
+                    vidEl.pause();
+                    vidEl.classList.add('hidden');
+                    if (bgEl) bgEl.classList.remove('opacity-0');
+                    isPreviewPlaying = false;
+                    if (label) label.innerText = 'Xem Trực Tiếp';
+                    if (icon) icon.innerText = 'smart_display';
+                    if (muteBtn) muteBtn.classList.add('hidden');
+                }
+            };
+
+            window.toggleHeroAudio = function() {
+                const vidEl = document.getElementById('hero-active-video');
+                const icon = document.getElementById('hero-mute-icon');
+                if (!vidEl) return;
+
+                vidEl.muted = !vidEl.muted;
+                if (icon) {
+                    icon.innerText = vidEl.muted ? 'volume_off' : 'volume_up';
+                }
+            };
+
+            window.launchCinemaFromHero = function() {
+                openCinemaModal('Tears of Steel: 2099', 'Phi công mạng giải mã lõi AI lượng tử.', '99%', '2026', '2h 42m', 'Cyberpunk • Sci-Fi Noir • IMAX');
+            };
+
+            window.openCinemaModal = function(title, desc, match, year, runtime, genres) {
+                const modal = document.getElementById("trailer-modal");
+                const box = document.getElementById("modal-box");
+                const video = document.getElementById("modal-video-player");
+
+                document.getElementById("modal-title").innerText = title;
+                document.getElementById("modal-desc").innerText = desc;
+                document.getElementById("modal-match").innerText = match;
+                document.getElementById("modal-year").innerText = year;
+                document.getElementById("modal-runtime").innerText = runtime;
+                document.getElementById("modal-genres").innerText = genres;
+
+                modal.classList.remove("opacity-0", "pointer-events-none");
+                modal.classList.add("opacity-100");
+                box.classList.remove("scale-95");
+                box.classList.add("scale-100");
+
+                if (video) {
+                    const nextVideo = typeof window.getNextVideoToPlay === 'function' ? window.getNextVideoToPlay() : 'neon_cyber_odyssey.mp4';
+                    video.src = `/api/stream/${nextVideo}`;
+                    video.play().catch(() => {});
+                }
+            };
+
+            window.closeModal = function() {
+                const modal = document.getElementById("trailer-modal");
+                const box = document.getElementById("modal-box");
+                const video = document.getElementById("modal-video-player");
+
+                modal.classList.add("opacity-0", "pointer-events-none");
+                modal.classList.remove("opacity-100");
+                box.classList.add("scale-95");
+                box.classList.remove("scale-100");
+
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            };
+
+            window.filterByMood = function(mood, btn) {
+                document.querySelectorAll('.mood-tab-btn').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-black', 'active');
+                    b.classList.add('bg-white/[0.05]', 'text-white');
+                });
+                btn.classList.add('bg-primary', 'text-black', 'active');
+                btn.classList.remove('bg-white/[0.05]', 'text-white');
+
+                const cards = document.querySelectorAll('#movie-grid-container .movie-card');
+                cards.forEach(c => {
+                    if (mood === 'all' || c.getAttribute('data-genre') === mood) {
+                        c.classList.remove('hidden');
+                    } else {
+                        c.classList.add('hidden');
+                    }
+                });
+            };
+
+            window.toggleListHero = function(btn) {
+                const inList = btn.classList.contains('text-primary');
+                if (!inList) {
+                    btn.classList.add('text-primary', 'border-primary/50');
+                    btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">bookmark_added</span>';
+                } else {
+                    btn.classList.remove('text-primary', 'border-primary/50');
+                    btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">bookmark_add</span>';
+                }
+            };
+        </script>
+    </body>
+</html>

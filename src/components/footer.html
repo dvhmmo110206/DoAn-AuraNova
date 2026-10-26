@@ -1,0 +1,163 @@
+<!-- ==================== AURA NOVA BRAND FOOTER ==================== -->
+<footer class="w-full bg-[#05060b] text-on-surface-variant py-space-xl md:py-space-2xl border-t border-white/5 relative overflow-hidden select-none">
+    <!-- Ambient glow in footer -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[180px] bg-primary/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-[1680px] mx-auto px-4 md:px-8 relative z-10">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-space-lg pb-space-lg border-b border-white/5">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                    <img src="/logo.png" alt="Aura Logo" class="w-full h-full rounded-[10px] object-cover" />
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-headline font-black text-white text-base tracking-tight">AURA <span class="text-aura-gradient">NOVA</span></span>
+                    <span class="text-[9px] text-primary font-mono uppercase tracking-widest font-bold">Next-Gen Cinema Ecosystem</span>
+                </div>
+            </div>
+
+            <!-- Server Status & Bitrate Indicator -->
+            <div class="flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <span class="text-primary font-mono font-medium text-[11px]">Stream 2.0 Engine Online</span>
+                <span class="text-white/20">|</span>
+                <span class="text-white/60 font-mono text-[11px]">4K Ultra-Low Latency</span>
+            </div>
+
+            <div class="flex items-center gap-space-lg">
+                <a aria-label="Rạp Chiếu" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/watch_a_film_page.html"><span class="material-symbols-outlined text-[22px]">theaters</span></a>
+                <a aria-label="Kho Phim" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/my_list.html"><span class="material-symbols-outlined text-[22px]">video_library</span></a>
+                <a aria-label="Gói Cước" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/pricing.html"><span class="material-symbols-outlined text-[22px]">workspace_premium</span></a>
+                <a aria-label="Hỗ Trợ" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/help.html"><span class="material-symbols-outlined text-[22px]">help</span></a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-space-md gap-x-gutter-lg mb-space-lg font-body-sm text-xs">
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/help.html">Âm Thanh Vòm Dolby Atmos</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html">Trung Tâm Media 4K</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html#privacy">Chính Sách Bảo Mật</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/help.html">Trung Tâm Trợ Giúp</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html">Thông Tin Tập Đoàn</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html#terms">Điều Khoản Dịch Vụ</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/pricing.html">Gói Cước &amp; Hội Viên VIP</a>
+                <a class="hover:text-primary transition-colors" href="/pages/contact.html">Liên Hệ Kỹ Thuật</a>
+                <a class="hover:text-primary transition-colors" href="/pages/select_profile.html">Hồ Sơ Người Xem</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/search_page.html?type=movie">Danh Mục Phim Chiếu Rạp</a>
+                <a class="hover:text-primary transition-colors" href="/pages/series_detail.html">Series Độc Quyền AURA</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html#legal">Giấy Phép Bản Quyền</a>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md pt-space-md border-t border-white/5">
+            <a class="px-4 py-1.5 rounded-full font-mono text-[11px] bg-white/[0.04] text-white hover:bg-primary hover:text-black border border-white/10 transition-all" href="/pages/help.html">
+                AURA NOVA SERVICE CENTER
+            </a>
+            <p class="font-mono text-[10px] text-on-surface-variant/70 uppercase tracking-widest">
+                © 2026 AURA NOVA CINEMA ENTERTAINMENT INC. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- ==================== NOVA AI CINEMATIC CO-PILOT WIDGET ==================== -->
+<div id="nova-ai-widget" class="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 select-none">
+    <!-- Chat Drawer Card -->
+    <div
+        id="nova-ai-drawer"
+        class="absolute bottom-[calc(100%+14px)] right-0 w-[340px] sm:w-[380px] max-w-[calc(100vw-2rem)] h-[460px] max-h-[85vh] bg-[#0c1022]/95 backdrop-blur-2xl border border-primary/30 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_25px_rgba(0,242,254,0.25)] flex flex-col overflow-hidden transition-all duration-300 transform scale-95 opacity-0 pointer-events-none translate-y-4"
+        style="display: none;"
+    >
+        <!-- Header -->
+        <div class="px-4 py-3.5 bg-white/[0.04] border-b border-white/10 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-[0_0_12px_rgba(0,242,254,0.5)]">
+                    <span class="material-symbols-outlined text-[16px] text-black">auto_awesome</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-headline font-bold text-white text-[13px] leading-tight flex items-center gap-1.5">
+                        <span>NOVA AI</span>
+                        <span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary text-[9px] font-mono">CO-PILOT</span>
+                    </span>
+                    <span class="text-[10px] text-primary/80 font-mono">Trợ lý điện ảnh thông minh</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-1">
+                <button id="nova-ai-clear-btn" class="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center text-on-surface-variant hover:text-white transition-colors cursor-pointer" title="Làm mới hội thoại" type="button">
+                    <span class="material-symbols-outlined text-[16px]">refresh</span>
+                </button>
+                <button id="nova-ai-close-btn" class="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center text-on-surface-variant hover:text-white transition-colors cursor-pointer" title="Đóng" type="button">
+                    <span class="material-symbols-outlined text-[18px]">close</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Stream -->
+        <div id="nova-ai-messages" class="p-4 flex flex-col gap-3 flex-1 min-h-0 overflow-y-auto text-xs scrollbar-thin">
+            <div class="flex items-start gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span class="material-symbols-outlined text-[15px] text-black">auto_awesome</span>
+                </div>
+                <div class="bg-surface-container-high border border-white/10 p-3 rounded-2xl rounded-tl-sm max-w-[85%] text-xs leading-relaxed text-white shadow-sm">
+                    Xin chào! Tôi là **NOVA AI**, trợ lý rạp chiếu AURA NOVA. Tôi có thể phân tích và đề xuất phim theo tâm trạng hoặc tiêu chuẩn kỹ thuật (4K, IMAX, Dolby Atmos). Bạn muốn xem gì hôm nay? ✨
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Mood Chips -->
+        <div class="px-3 pb-2 flex flex-wrap gap-1.5 flex-shrink-0">
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Gợi ý phim Sci-Fi viễn tưởng hại não">
+                🚀 Sci-Fi Hại Não
+            </button>
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Tìm bom tấn hành động xả stress đỉnh cao">
+                💥 Hành Động
+            </button>
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Gợi ý phim du hành không gian vũ trụ IMAX">
+                🌌 Vũ Trụ
+            </button>
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Chọn ngẫu nhiên 1 phim đỉnh nhất tối nay">
+                🎲 Chọn Ngẫu Nhiên
+            </button>
+        </div>
+
+        <!-- Chat Input Form -->
+        <form id="nova-ai-form" class="p-3 bg-white/[0.03] border-t border-white/10 flex items-center gap-2 flex-shrink-0">
+            <input
+                id="nova-ai-input"
+                class="flex-1 bg-white/[0.06] text-white px-3.5 py-2 rounded-full text-xs border border-white/10 focus:border-primary focus:outline-none placeholder:text-on-surface-variant/60"
+                placeholder="Hỏi NOVA AI về phim, diễn viên..."
+                type="text"
+                autocomplete="off"
+            />
+            <button
+                type="submit"
+                class="w-8 h-8 rounded-full bg-primary hover:bg-white text-black flex items-center justify-center transition-colors cursor-pointer flex-shrink-0 shadow-md"
+                title="Gửi"
+            >
+                <span class="material-symbols-outlined text-[16px] ml-0.5">send</span>
+            </button>
+        </form>
+    </div>
+
+    <!-- The Holographic Energy Orb Button -->
+    <button
+        id="nova-ai-launcher"
+        type="button"
+        class="relative w-14 h-14 rounded-full bg-gradient-to-tr from-primary via-secondary to-tertiary p-0.5 shadow-[0_0_30px_rgba(0,242,254,0.6)] hover:shadow-[0_0_45px_rgba(0,242,254,0.9)] transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer group"
+        title="Trợ Lý Điện Ảnh NOVA AI"
+    >
+        <div class="w-full h-full rounded-full bg-[#07080E] flex items-center justify-center relative overflow-hidden">
+            <!-- Breathing radial glow in center -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 animate-pulse"></div>
+            <span class="material-symbols-outlined text-[26px] text-primary group-hover:rotate-12 transition-transform duration-300 relative z-10">auto_awesome</span>
+        </div>
+    </button>
+</div>

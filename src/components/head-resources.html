@@ -1,0 +1,235 @@
+        <!-- ==================== CINESTREAM GLOBAL HEAD RESOURCES ==================== -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <!-- Favicon & App Icons -->
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="stylesheet" href="/css/theme.css" />
+        <script type="module" src="/js/player.js"></script>
+
+        <style>
+            @layer base {
+                html,
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                body {
+                    overscroll-behavior: none;
+                    background-color: #07080e;
+                    color: #f1f5f9;
+                }
+                main > :first-child {
+                    margin-top: 0 !important;
+                }
+                main > :last-child {
+                    margin-bottom: 0 !important;
+                }
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            .material-symbols-outlined {
+                font-family: "Material Symbols Outlined";
+                font-weight: normal;
+                font-style: normal;
+                font-size: 24px;
+                line-height: 1;
+                letter-spacing: normal;
+                text-transform: none;
+                display: inline-block;
+                white-space: nowrap;
+                word-wrap: normal;
+                direction: ltr;
+                -webkit-font-feature-settings: "liga";
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* Custom Neo-Luminescent glassmorphism and glow utilities */
+            .glass-panel {
+                background: rgba(13, 17, 34, 0.72);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .glass-dock {
+                background: rgba(10, 13, 24, 0.85);
+                backdrop-filter: blur(28px);
+                -webkit-backdrop-filter: blur(28px);
+                border: 1px solid rgba(0, 242, 254, 0.22);
+                box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px -8px rgba(0, 242, 254, 0.25);
+            }
+            .neon-cyan-glow {
+                box-shadow: 0 0 35px -5px rgba(0, 242, 254, 0.55);
+            }
+            .neon-cyan-glow-sm {
+                box-shadow: 0 0 16px -3px rgba(0, 242, 254, 0.45);
+            }
+            .neon-purple-glow {
+                box-shadow: 0 0 35px -5px rgba(121, 40, 202, 0.55);
+            }
+            .neon-emerald-glow {
+                box-shadow: 0 0 35px -5px rgba(0, 245, 160, 0.55);
+            }
+            .neon-red-glow {
+                box-shadow: 0 0 35px -5px rgba(0, 242, 254, 0.5);
+            }
+            .neon-red-glow-sm {
+                box-shadow: 0 0 15px -3px rgba(0, 242, 254, 0.4);
+            }
+            .text-aura-gradient {
+                background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 50%, #7928CA 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .bg-aura-gradient {
+                background: linear-gradient(135deg, #00F2FE 0%, #7928CA 100%);
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+        <script>
+            (function() {
+                const _w = console.warn;
+                console.warn = function(...args) {
+                    if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+                    _w.apply(console, args);
+                };
+            })();
+        </script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            tertiary: "#00F5A0",
+                            "outline-variant": "#17203b",
+                            "on-surface": "#f1f5f9",
+                            background: "#07080e",
+                            "inverse-on-surface": "#1e293b",
+                            "tertiary-container": "#06b6d4",
+                            "on-tertiary-fixed": "#022c22",
+                            "surface-container-high": "#171e3b",
+                            "surface-variant": "#1e274b",
+                            "primary-fixed": "#cffafe",
+                            "on-tertiary-fixed-variant": "#065f46",
+                            "on-primary-fixed-variant": "#0e7490",
+                            primary: "#4facfe",
+                            "surface-container-low": "#0d1122",
+                            "inverse-primary": "#0891b2",
+                            "tertiary-fixed-dim": "#6ee7b7",
+                            "on-secondary-fixed": "#3b0764",
+                            "on-surface-variant": "#94a3b8",
+                            "tertiary-fixed": "#a7f3d0",
+                            "secondary-container": "#7928CA",
+                            "primary-container": "#00F2FE",
+                            "surface-container-lowest": "#030408",
+                            surface: "#0a0d18",
+                            "primary-fixed-dim": "#a5f3fc",
+                            outline: "#273560",
+                            "on-secondary-container": "#ffffff",
+                            "on-error-container": "#fecdd3",
+                            "on-primary": "#04101e",
+                            "surface-tint": "#00F2FE",
+                            "on-background": "#f1f5f9",
+                            "error-container": "#9f1239",
+                            "surface-bright": "#25315e",
+                            "on-primary-container": "#030712",
+                            "on-primary-fixed": "#164e63",
+                            "on-secondary": "#ffffff",
+                            secondary: "#b800ff",
+                            error: "#f43f5e",
+                            "on-tertiary": "#022c22",
+                            "on-secondary-fixed-variant": "#581c87",
+                            "secondary-fixed": "#f3e8ff",
+                            "surface-container-highest": "#212a52",
+                            "inverse-surface": "#f1f5f9",
+                            "secondary-fixed-dim": "#d8b4fe",
+                            "on-error": "#ffffff",
+                            "surface-dim": "#0a0d18",
+                            "on-tertiary-container": "#ffffff",
+                            "surface-container": "#11162d",
+                            "aura-cyan": "#00F2FE",
+                            "aura-purple": "#7928CA",
+                            "aura-emerald": "#00F5A0",
+                            "aura-violet": "#B800FF",
+                        },
+                        borderRadius: { DEFAULT: "0.375rem", lg: "0.75rem", xl: "1rem", "2xl": "1.5rem", full: "9999px" },
+                        spacing: {
+                            "gutter-sm": "1rem",
+                            "space-sm": "0.5rem",
+                            "space-xs": "0.25rem",
+                            "space-lg": "1.5rem",
+                            gutter: "1.5rem",
+                            "gutter-lg": "2rem",
+                            margin: "2rem",
+                            "space-md": "1rem",
+                            "margin-mobile": "1rem",
+                            "margin-desktop": "3.5rem",
+                            "space-xl": "2.5rem",
+                            "space-2xl": "4rem",
+                        },
+                        fontFamily: {
+                            "label-md": ["Plus Jakarta Sans"],
+                            "headline-sm": ["Outfit"],
+                            "label-badge": ["Plus Jakarta Sans"],
+                            "body-sm": ["Plus Jakarta Sans"],
+                            "headline-xl": ["Outfit"],
+                            "headline-xl-mobile": ["Outfit"],
+                            "display-hero-mobile": ["Outfit"],
+                            "display-hero": ["Outfit"],
+                            "body-md": ["Plus Jakarta Sans"],
+                            "label-lg": ["Plus Jakarta Sans"],
+                            "body-lg": ["Plus Jakarta Sans"],
+                            "headline-lg": ["Outfit"],
+                        },
+                        fontSize: {
+                            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }],
+                            "headline-sm": ["20px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" }],
+                            "label-badge": ["10px", { lineHeight: "12px", letterSpacing: "0.08em", fontWeight: "700" }],
+                            "body-sm": ["13px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+                            "headline-xl": [
+                                "40px",
+                                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" },
+                            ],
+                            "headline-xl-mobile": [
+                                "28px",
+                                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" },
+                            ],
+                            "display-hero-mobile": [
+                                "36px",
+                                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" },
+                            ],
+                            "display-hero": [
+                                "64px",
+                                { lineHeight: "72px", letterSpacing: "-0.03em", fontWeight: "800" },
+                            ],
+                            "body-md": ["15px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "400" }],
+                            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "600" }],
+                            "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "400" }],
+                            "headline-lg": [
+                                "28px",
+                                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+                            ],
+                        },
+                    },
+                },
+            };
+        </script>

@@ -1,0 +1,1453 @@
+<!doctype html>
+<html class="dark" lang="vi">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>AURA NOVA - Next-Gen Cinema Platform</title>
+        <meta content="AURA NOVA Cinema - Khám phá điện ảnh chuẩn rạp 4K IMAX, âm thanh vòm Dolby Atmos và Trợ lý AI NOVA." name="description" />
+                <!-- ==================== CINESTREAM GLOBAL HEAD RESOURCES ==================== -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <!-- Favicon & App Icons -->
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+
+        <style>
+            @layer base {
+                html,
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                body {
+                    overscroll-behavior: none;
+                    background-color: #07080e;
+                    color: #f1f5f9;
+                }
+                main > :first-child {
+                    margin-top: 0 !important;
+                }
+                main > :last-child {
+                    margin-bottom: 0 !important;
+                }
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            .material-symbols-outlined {
+                font-family: "Material Symbols Outlined";
+                font-weight: normal;
+                font-style: normal;
+                font-size: 24px;
+                line-height: 1;
+                letter-spacing: normal;
+                text-transform: none;
+                display: inline-block;
+                white-space: nowrap;
+                word-wrap: normal;
+                direction: ltr;
+                -webkit-font-feature-settings: "liga";
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* Custom Neo-Luminescent glassmorphism and glow utilities */
+            .glass-panel {
+                background: rgba(13, 17, 34, 0.72);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .glass-dock {
+                background: rgba(10, 13, 24, 0.85);
+                backdrop-filter: blur(28px);
+                -webkit-backdrop-filter: blur(28px);
+                border: 1px solid rgba(0, 242, 254, 0.22);
+                box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px -8px rgba(0, 242, 254, 0.25);
+            }
+            .neon-cyan-glow {
+                box-shadow: 0 0 35px -5px rgba(0, 242, 254, 0.55);
+            }
+            .neon-cyan-glow-sm {
+                box-shadow: 0 0 16px -3px rgba(0, 242, 254, 0.45);
+            }
+            .neon-purple-glow {
+                box-shadow: 0 0 35px -5px rgba(121, 40, 202, 0.55);
+            }
+            .neon-emerald-glow {
+                box-shadow: 0 0 35px -5px rgba(0, 245, 160, 0.55);
+            }
+            .neon-red-glow {
+                box-shadow: 0 0 35px -5px rgba(0, 242, 254, 0.5);
+            }
+            .neon-red-glow-sm {
+                box-shadow: 0 0 15px -3px rgba(0, 242, 254, 0.4);
+            }
+            .text-aura-gradient {
+                background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 50%, #7928CA 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .bg-aura-gradient {
+                background: linear-gradient(135deg, #00F2FE 0%, #7928CA 100%);
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+        <script>
+            (function() {
+                const _w = console.warn;
+                console.warn = function(...args) {
+                    if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+                    _w.apply(console, args);
+                };
+            })();
+        </script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            tertiary: "#00F5A0",
+                            "outline-variant": "#17203b",
+                            "on-surface": "#f1f5f9",
+                            background: "#07080e",
+                            "inverse-on-surface": "#1e293b",
+                            "tertiary-container": "#06b6d4",
+                            "on-tertiary-fixed": "#022c22",
+                            "surface-container-high": "#171e3b",
+                            "surface-variant": "#1e274b",
+                            "primary-fixed": "#cffafe",
+                            "on-tertiary-fixed-variant": "#065f46",
+                            "on-primary-fixed-variant": "#0e7490",
+                            primary: "#4facfe",
+                            "surface-container-low": "#0d1122",
+                            "inverse-primary": "#0891b2",
+                            "tertiary-fixed-dim": "#6ee7b7",
+                            "on-secondary-fixed": "#3b0764",
+                            "on-surface-variant": "#94a3b8",
+                            "tertiary-fixed": "#a7f3d0",
+                            "secondary-container": "#7928CA",
+                            "primary-container": "#00F2FE",
+                            "surface-container-lowest": "#030408",
+                            surface: "#0a0d18",
+                            "primary-fixed-dim": "#a5f3fc",
+                            outline: "#273560",
+                            "on-secondary-container": "#ffffff",
+                            "on-error-container": "#fecdd3",
+                            "on-primary": "#04101e",
+                            "surface-tint": "#00F2FE",
+                            "on-background": "#f1f5f9",
+                            "error-container": "#9f1239",
+                            "surface-bright": "#25315e",
+                            "on-primary-container": "#030712",
+                            "on-primary-fixed": "#164e63",
+                            "on-secondary": "#ffffff",
+                            secondary: "#b800ff",
+                            error: "#f43f5e",
+                            "on-tertiary": "#022c22",
+                            "on-secondary-fixed-variant": "#581c87",
+                            "secondary-fixed": "#f3e8ff",
+                            "surface-container-highest": "#212a52",
+                            "inverse-surface": "#f1f5f9",
+                            "secondary-fixed-dim": "#d8b4fe",
+                            "on-error": "#ffffff",
+                            "surface-dim": "#0a0d18",
+                            "on-tertiary-container": "#ffffff",
+                            "surface-container": "#11162d",
+                            "aura-cyan": "#00F2FE",
+                            "aura-purple": "#7928CA",
+                            "aura-emerald": "#00F5A0",
+                            "aura-violet": "#B800FF",
+                        },
+                        borderRadius: { DEFAULT: "0.375rem", lg: "0.75rem", xl: "1rem", "2xl": "1.5rem", full: "9999px" },
+                        spacing: {
+                            "gutter-sm": "1rem",
+                            "space-sm": "0.5rem",
+                            "space-xs": "0.25rem",
+                            "space-lg": "1.5rem",
+                            gutter: "1.5rem",
+                            "gutter-lg": "2rem",
+                            margin: "2rem",
+                            "space-md": "1rem",
+                            "margin-mobile": "1rem",
+                            "margin-desktop": "3.5rem",
+                            "space-xl": "2.5rem",
+                            "space-2xl": "4rem",
+                        },
+                        fontFamily: {
+                            "label-md": ["Plus Jakarta Sans"],
+                            "headline-sm": ["Outfit"],
+                            "label-badge": ["Plus Jakarta Sans"],
+                            "body-sm": ["Plus Jakarta Sans"],
+                            "headline-xl": ["Outfit"],
+                            "headline-xl-mobile": ["Outfit"],
+                            "display-hero-mobile": ["Outfit"],
+                            "display-hero": ["Outfit"],
+                            "body-md": ["Plus Jakarta Sans"],
+                            "label-lg": ["Plus Jakarta Sans"],
+                            "body-lg": ["Plus Jakarta Sans"],
+                            "headline-lg": ["Outfit"],
+                        },
+                        fontSize: {
+                            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }],
+                            "headline-sm": ["20px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" }],
+                            "label-badge": ["10px", { lineHeight: "12px", letterSpacing: "0.08em", fontWeight: "700" }],
+                            "body-sm": ["13px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+                            "headline-xl": [
+                                "40px",
+                                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" },
+                            ],
+                            "headline-xl-mobile": [
+                                "28px",
+                                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" },
+                            ],
+                            "display-hero-mobile": [
+                                "36px",
+                                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" },
+                            ],
+                            "display-hero": [
+                                "64px",
+                                { lineHeight: "72px", letterSpacing: "-0.03em", fontWeight: "800" },
+                            ],
+                            "body-md": ["15px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "400" }],
+                            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "600" }],
+                            "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "400" }],
+                            "headline-lg": [
+                                "28px",
+                                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+                            ],
+                        },
+                    },
+                },
+            };
+        </script>
+      <script type="module" crossorigin src="/assets/player-Ck4on4dO.js"></script>
+      <script type="module" crossorigin src="/assets/nav-BbPJ7FoU.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/player-rMOXpmRt.css">
+    </head>
+    <body class="bg-[#07080E] font-body-md text-on-surface antialiased selection:bg-primary selection:text-black">
+        <!-- Left Sidebar Navigation Rail & Top Utility Header -->
+        <!-- ==================== AURA NOVA DESKTOP LEFT SIDEBAR RAIL ==================== -->
+<aside
+    id="aura-sidebar-rail"
+    class="hidden md:flex fixed top-0 left-0 h-screen w-20 hover:w-64 transition-all duration-300 ease-out z-50 glass-dock border-r border-white/10 flex-col justify-between py-6 px-3.5 group select-none shadow-[8px_0_35px_rgba(0,0,0,0.85)] overflow-x-hidden"
+>
+    <!-- Top Brand Logo -->
+    <div class="flex flex-col gap-6">
+        <a href="/index.html" class="flex items-center gap-3.5 px-2 py-1 overflow-hidden" title="AURA NOVA Cinema">
+            <div class="w-11 h-11 flex-shrink-0 rounded-2xl bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-[0_0_20px_rgba(0,242,254,0.6)]">
+                <img src="/logo.png" alt="Aura Nova Logo" class="w-full h-full rounded-[14px] object-cover bg-surface" />
+            </div>
+            <div class="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+                <span class="font-headline font-extrabold text-[18px] tracking-tight text-white leading-tight">
+                    AURA <span class="text-aura-gradient">NOVA</span>
+                </span>
+                <span class="text-[9px] font-mono tracking-widest text-primary uppercase -mt-0.5 font-bold">
+                    Cinema OS 3.0
+                </span>
+            </div>
+        </a>
+
+        <!-- Main Navigation Links -->
+        <nav class="flex flex-col gap-2 mt-2" data-active-classes="bg-primary/20 text-primary border-primary/40 shadow-[0_0_20px_rgba(0,242,254,0.35)]">
+            <a
+                href="/index.html"
+                data-path="home"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Trang Chủ (Home)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-primary flex-shrink-0">grid_view</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Trang Chủ
+                </span>
+            </a>
+
+            <a
+                href="/pages/search_page.html"
+                data-path="movies"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Kho Phim 4K (Movies)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-secondary flex-shrink-0">movie</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Kho Phim 4K
+                </span>
+            </a>
+
+            <a
+                href="/pages/series_detail.html"
+                data-path="series"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Series Độc Quyền"
+            >
+                <span class="material-symbols-outlined text-[24px] text-tertiary flex-shrink-0">tv_gen</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Series Nguyên Bản
+                </span>
+            </a>
+
+            <a
+                href="/pages/watch_a_film_page.html?id=neon-cyber-odyssey"
+                data-path="theater"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Rạp Chiếu IMAX (Cinema)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-primary flex-shrink-0">theaters</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Rạp Trực Tuyến
+                </span>
+            </a>
+
+            <a
+                href="/pages/my_list.html"
+                data-path="my-list"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav relative"
+                title="Kho Lưu Trữ (My Vault)"
+            >
+                <div class="relative flex-shrink-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[24px] text-secondary flex-shrink-0">video_library</span>
+                    <span class="watchlist-dot-badge hidden absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary border-2 border-[#0a0d18] shadow-[0_0_8px_rgba(0,242,254,1)]"></span>
+                </div>
+                <div class="flex items-center justify-between flex-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+                    <span class="font-label-lg text-[13px] font-semibold">Kho Của Tôi</span>
+                    <span class="watchlist-count-badge hidden ml-2 px-2 py-0.5 rounded-full text-[10px] bg-primary text-black font-bold font-mono"></span>
+                </div>
+            </a>
+
+            <a
+                href="/pages/pricing.html"
+                data-path="pricing"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Hội Viên VIP (Lounge)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-amber-400 flex-shrink-0">workspace_premium</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Gói Hội Viên VIP
+                </span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Bottom Sidebar Section (NOVA AI trigger & Profile) -->
+    <div class="flex flex-col gap-3 pt-4 border-t border-white/5">
+        <!-- Quick AI Launcher Button -->
+        <button
+            id="sidebar-nova-ai-btn"
+            type="button"
+            class="flex items-center gap-4 px-3 py-2.5 rounded-2xl bg-gradient-to-r from-primary/15 to-secondary/15 hover:from-primary/25 hover:to-secondary/25 border border-primary/30 text-white transition-all cursor-pointer shadow-[0_0_15px_rgba(0,242,254,0.2)] group/ai"
+            title="Mở Trợ Lý NOVA AI"
+        >
+            <div class="relative w-8 h-8 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px] text-primary animate-pulse">auto_awesome</span>
+            </div>
+            <div class="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden text-left">
+                <span class="text-[12px] font-bold text-white leading-none">NOVA AI</span>
+                <span class="text-[10px] text-primary/80 font-mono">Cinematic Co-Pilot</span>
+            </div>
+        </button>
+
+        <!-- User Profile Pill -->
+        <a
+            href="/pages/select_profile.html"
+            class="flex items-center gap-3.5 px-2 py-2 rounded-2xl hover:bg-white/[0.06] transition-colors"
+            title="Quản Lý Hồ Sơ"
+        >
+            <div class="w-9 h-9 rounded-xl p-0.5 bg-gradient-to-tr from-primary to-secondary shadow-md flex-shrink-0">
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
+                    alt="User Avatar"
+                    class="w-full h-full rounded-[10px] object-cover"
+                />
+            </div>
+            <div class="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+                <span class="text-[12px] font-bold text-white leading-tight">Alex Vance</span>
+                <span class="text-[10px] text-tertiary font-mono">4K VIP Member</span>
+            </div>
+        </a>
+    </div>
+</aside>
+
+<!-- ==================== TOP COMPACT UTILITY BAR ==================== -->
+<header
+    id="aura-top-utility-bar"
+    class="fixed top-0 left-0 md:left-20 right-0 h-16 md:h-20 px-4 md:px-8 z-40 glass-panel border-b border-white/5 flex items-center justify-between gap-4 select-none transition-all duration-300"
+>
+    <!-- Left: Mobile Brand & System Health -->
+    <div class="flex items-center gap-3">
+        <!-- Mobile Logo Trigger -->
+        <a href="/index.html" class="flex md:hidden items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-md">
+                <img src="/logo.png" alt="Aura Logo" class="w-full h-full rounded-[10px] object-cover" />
+            </div>
+            <span class="font-headline font-black text-[16px] text-white">AURA<span class="text-aura-gradient">NOVA</span></span>
+        </a>
+
+        <!-- Live Streaming Status Pill -->
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span class="text-white/80 font-mono text-[11px]">Stream 2.0 • Ultra Low Latency</span>
+        </div>
+    </div>
+
+    <!-- Center: Global Search Spotlight Input -->
+    <div class="relative flex-1 max-w-md mx-2">
+        <div
+            class="flex items-center bg-white/[0.05] hover:bg-white/[0.08] focus-within:bg-white/[0.1] border border-white/10 focus-within:border-primary/50 rounded-full px-4 py-1.5 transition-all duration-300 shadow-inner group/search"
+        >
+            <span class="material-symbols-outlined text-primary text-[19px] mr-2">search</span>
+            <input
+                id="global-search-input"
+                class="w-full bg-transparent text-white placeholder:text-on-surface-variant/70 font-body-sm text-[13px] focus:outline-none"
+                placeholder="Tìm phim, đạo diễn, 4K IMAX... (Ctrl+K)"
+                type="search"
+            />
+            <span class="hidden sm:inline px-1.5 py-0.5 rounded bg-white/10 text-white/50 text-[10px] font-mono border border-white/10">⌘K</span>
+        </div>
+    </div>
+
+    <!-- Right: Quick Actions (Help, Notifications, User) -->
+    <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        <a
+            href="/pages/help.html"
+            class="hidden sm:flex w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 text-on-surface-variant hover:text-white items-center justify-center transition-colors"
+            title="Trợ Giúp & FAQ"
+        >
+            <span class="material-symbols-outlined text-[19px]">help</span>
+        </a>
+
+        <!-- Notification Trigger -->
+        <div class="relative" id="notifications-wrapper">
+            <button
+                id="notifications-btn"
+                type="button"
+                aria-label="Notifications"
+                class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 text-on-surface-variant hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+            >
+                <span class="material-symbols-outlined text-[20px]">notifications</span>
+                <span
+                    id="notifications-badge"
+                    class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(0,242,254,1)]"
+                ></span>
+            </button>
+
+            <!-- Notifications Dropdown Panel -->
+            <div
+                id="notifications-dropdown"
+                class="absolute right-0 top-full mt-3 w-80 sm:w-96 bg-surface-container-high/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.9)] overflow-hidden transition-all duration-200 transform scale-95 opacity-0 pointer-events-none translate-y-2 z-50 select-none"
+                style="display: none;"
+            >
+                <div class="px-4 py-3 bg-surface-container/90 border-b border-white/5 flex items-center justify-between">
+                    <span class="font-headline text-[14px] font-bold text-white flex items-center gap-2">
+                        <span>Thông báo hệ thống</span>
+                        <span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-mono">3 MỚI</span>
+                    </span>
+                    <button id="notifications-mark-read-btn" class="text-[11px] text-primary hover:underline cursor-pointer">Đọc tất cả</button>
+                </div>
+                <div class="max-h-[340px] overflow-y-auto divide-y divide-white/5 text-[12px] scrollbar-thin">
+                    <a href="/pages/watch_a_film_page.html?id=neon-cyber-odyssey" class="p-3 flex items-start gap-3 hover:bg-white/[0.05] transition-colors">
+                        <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5">verified</span>
+                        <div class="flex-1">
+                            <p class="font-bold text-white">Neon Cyber Odyssey: 2099</p>
+                            <p class="text-on-surface-variant text-[11px]">Bản chuẩn IMAX 4K HDR vừa được cập nhật cho tài khoản VIP.</p>
+                        </div>
+                    </a>
+                    <a href="/pages/series_detail.html" class="p-3 flex items-start gap-3 hover:bg-white/[0.05] transition-colors">
+                        <span class="material-symbols-outlined text-secondary text-[20px] flex-shrink-0 mt-0.5">tv_gen</span>
+                        <div class="flex-1">
+                            <p class="font-bold text-white">Neural Drift: Tập Mới</p>
+                            <p class="text-on-surface-variant text-[11px]">Tập 7 đã phát sóng với âm thanh Dolby Atmos 7.1.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Profile Avatar -->
+        <a href="/pages/select_profile.html" class="flex items-center gap-1.5 p-1 rounded-full hover:bg-white/[0.06] transition-colors">
+            <div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-primary to-secondary shadow-md">
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
+                    alt="User"
+                    class="w-full h-full rounded-full object-cover"
+                />
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant text-[18px] hidden sm:inline">expand_more</span>
+        </a>
+    </div>
+</header>
+
+<!-- ==================== MOBILE FLOATING BOTTOM APP DOCK ==================== -->
+<nav
+    id="aura-mobile-bottom-dock"
+    class="md:hidden fixed bottom-3 left-3 right-3 h-16 z-50 glass-dock rounded-2xl flex items-center justify-around px-2 shadow-[0_10px_35px_rgba(0,0,0,0.9),0_0_20px_rgba(0,242,254,0.25)] border border-primary/20"
+>
+    <a href="/index.html" class="flex flex-col items-center justify-center p-2 text-primary" title="Trang Chủ">
+        <span class="material-symbols-outlined text-[22px]">grid_view</span>
+        <span class="text-[9px] font-bold">Home</span>
+    </a>
+    <a href="/pages/search_page.html" class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-white" title="Khám Phá">
+        <span class="material-symbols-outlined text-[22px]">movie</span>
+        <span class="text-[9px] font-medium">Phim 4K</span>
+    </a>
+    <a href="/pages/watch_a_film_page.html?id=neon-cyber-odyssey" class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-white" title="Rạp Chiếu">
+        <span class="material-symbols-outlined text-[22px]">theaters</span>
+        <span class="text-[9px] font-medium">Rạp Phim</span>
+    </a>
+    <a href="/pages/my_list.html" class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-white" title="Kho Phim">
+        <span class="material-symbols-outlined text-[22px]">video_library</span>
+        <span class="text-[9px] font-medium">Kho Của Tôi</span>
+    </a>
+    <button id="mobile-nova-ai-trigger" type="button" class="flex flex-col items-center justify-center p-2 text-secondary" title="Trợ Lý AI">
+        <span class="material-symbols-outlined text-[22px] animate-pulse">auto_awesome</span>
+        <span class="text-[9px] font-bold">NOVA AI</span>
+    </button>
+</nav>
+
+
+        <!-- Main Bento Dashboard Canvas -->
+        <main class="w-full md:pl-20 pt-16 md:pt-20 min-h-screen bg-[#07080E] text-on-surface pb-28 md:pb-16 overflow-x-hidden">
+            <div class="max-w-[1680px] mx-auto px-4 md:px-8 py-6 flex flex-col gap-10">
+
+                <!-- ==================== SECTION 1: ASYMMETRIC 3-COLUMN BENTO HERO SPOTLIGHT ==================== -->
+                <section class="grid grid-cols-12 gap-6 w-full" id="hero-bento-stage">
+                    <!-- Main Cinema Stage (8 Cols on Desktop) -->
+                    <div class="col-span-12 lg:col-span-8 relative rounded-3xl overflow-hidden glass-panel border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_35px_rgba(0,242,254,0.18)] min-h-[480px] md:min-h-[580px] flex flex-col justify-end p-6 md:p-10 group">
+                        <!-- Ambient Spotlight Glow Behind Stage -->
+                        <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+                        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-secondary/20 rounded-full blur-[140px] pointer-events-none"></div>
+
+                        <!-- Active Video Stream / Poster Backdrop -->
+                        <div
+                            id="hero-backdrop-img"
+                            class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                            style="background-image: url('/images/movies/tears-of-steel_backdrop.jpg');"
+                        ></div>
+                        <video
+                            id="hero-active-video"
+                            poster="/images/movies/tears-of-steel_backdrop.jpg"
+                            class="absolute inset-0 w-full h-full object-cover hidden z-10"
+                            playsinline
+                            muted
+                            loop
+                        ></video>
+
+                        <!-- Dark Scrim Gradient Overlays -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#07080E] via-[#07080E]/70 to-transparent pointer-events-none z-10"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-[#07080E]/90 via-[#07080E]/40 to-transparent pointer-events-none z-10 w-full md:w-3/4"></div>
+
+                        <!-- Hero Content Overlay -->
+                        <div class="relative z-20 flex flex-col max-w-2xl gap-3">
+                            <!-- Badges Row -->
+                            <div class="flex flex-wrap items-center gap-2 mb-1">
+                                <span class="px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/40 font-mono text-[11px] font-bold tracking-wider flex items-center gap-1 shadow-[0_0_12px_rgba(0,242,254,0.4)]">
+                                    <span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                                    #1 SPOTLIGHT HÔM NAY
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-md text-amber-300 font-bold text-[11px] font-mono flex items-center gap-1">
+                                    ★ 9.4 IMDb
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-white/[0.06] text-white/90 text-[11px] font-mono">
+                                    99% PHÙ HỢP
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-white/[0.06] text-white/90 text-[11px] font-mono">
+                                    IMAX 70MM • 4K HDR
+                                </span>
+                            </div>
+
+                            <!-- Title -->
+                            <h1 id="hero-title" class="font-headline font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
+                                Tears of Steel <span class="text-aura-gradient">: Cybernetic Awakening</span>
+                            </h1>
+
+                            <!-- Synopsis -->
+                            <p id="hero-synopsis" class="text-on-surface-variant font-body-md text-sm md:text-base line-clamp-2 md:line-clamp-3 leading-relaxed drop-shadow">
+                                Trong đại đô thị tương lai hậu tận thế nơi tàn tích robot khổng lồ bao trùm thế giới, nhóm phi công điều khiển cánh tay sinh học lượng tử nỗ lực kết nối lại ký ức trước khi pháo đài cuối cùng sụp đổ.
+                            </p>
+
+                            <!-- Actions & Live Audio Toggle -->
+                            <div class="flex flex-wrap items-center gap-3 pt-3">
+                                <button
+                                    id="hero-play-main-btn"
+                                    type="button"
+                                    class="flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-primary hover:bg-white text-black font-label-lg font-bold text-sm tracking-wide shadow-[0_0_28px_rgba(0,242,254,0.6)] hover:shadow-[0_0_35px_rgba(0,242,254,0.9)] transition-all cursor-pointer active:scale-95"
+                                    onclick="launchCinemaFromHero()"
+                                >
+                                    <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                    <span>Khởi Chiếu Rạp 4K</span>
+                                </button>
+
+                                <button
+                                    id="hero-preview-toggle-btn"
+                                    type="button"
+                                    class="flex items-center gap-2 px-5 py-3 rounded-2xl bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-white font-label-lg font-semibold text-sm backdrop-blur-xl transition-all cursor-pointer"
+                                    onclick="toggleHeroVideoPreview()"
+                                >
+                                    <span id="hero-preview-icon" class="material-symbols-outlined text-[20px] text-primary">smart_display</span>
+                                    <span id="hero-preview-label">Xem Trực Tiếp</span>
+                                </button>
+
+                                <button
+                                    id="hero-mute-toggle-btn"
+                                    type="button"
+                                    class="hidden w-11 h-11 rounded-2xl bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-white flex items-center justify-center transition-all cursor-pointer"
+                                    title="Bật/Tắt Âm Thanh"
+                                    onclick="toggleHeroAudio()"
+                                >
+                                    <span id="hero-mute-icon" class="material-symbols-outlined text-[20px]">volume_off</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="w-11 h-11 rounded-2xl bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-white flex items-center justify-center transition-all cursor-pointer"
+                                    title="Thêm vào Vault Của Tôi"
+                                    onclick="toggleListHero(this)"
+                                >
+                                    <span class="material-symbols-outlined text-[20px]">bookmark_add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Side Spotlight Queue (4 Cols on Desktop) -->
+                    <div class="col-span-12 lg:col-span-4 flex flex-col gap-4">
+                        <div class="flex items-center justify-between px-1">
+                            <span class="font-headline font-bold text-white text-base tracking-tight flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-[20px]">featured_play_list</span>
+                                Hàng Chờ Spotlight
+                            </span>
+                            <span class="text-[11px] font-mono text-primary/80 uppercase">Click để đổi phim</span>
+                        </div>
+
+                        <!-- Spotlight Card 1 -->
+                        <div
+                            class="spotlight-queue-card p-3 rounded-2xl glass-panel hover:bg-white/[0.08] border border-white/10 hover:border-primary/50 transition-all duration-300 cursor-pointer flex items-center gap-3.5 group/card active:scale-[0.99]"
+                            onclick="swapHeroSpotlight(0)"
+                        >
+                            <div class="relative w-20 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-surface shadow-md">
+                                <img src="/images/movies/deep-abyss-expedition_poster.jpg" alt="Deep Abyss"
+                                    class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                                />
+                                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-primary font-bold">4K</span>
+                            </div>
+                            <div class="flex flex-col flex-1 min-w-0">
+                                <span class="text-amber-300 text-[11px] font-mono font-bold">★ 9.2 IMDb • 98% Phù hợp</span>
+                                <h4 class="font-headline font-bold text-white text-[15px] group-hover/card:text-primary transition-colors truncate">
+                                    The Silent Abyss
+                                </h4>
+                                <p class="text-on-surface-variant text-[12px] line-clamp-2 leading-relaxed">
+                                    Thám hiểm rãnh vực Mariana đối đầu cổ vật thủy quái nguyên sinh.
+                                </p>
+                            </div>
+                            <span class="material-symbols-outlined text-white/30 group-hover/card:text-primary group-hover/card:translate-x-1 transition-all">chevron_right</span>
+                        </div>
+
+                        <!-- Spotlight Card 2 -->
+                        <div
+                            class="spotlight-queue-card p-3 rounded-2xl glass-panel hover:bg-white/[0.08] border border-white/10 hover:border-secondary/50 transition-all duration-300 cursor-pointer flex items-center gap-3.5 group/card active:scale-[0.99]"
+                            onclick="swapHeroSpotlight(1)"
+                        >
+                            <div class="relative w-20 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-surface shadow-md">
+                                <img
+                                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&auto=format&fit=crop&q=85"
+                                    alt="Sintel: The Dragon Chronicles"
+                                    class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                                />
+                                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-secondary font-bold">IMAX</span>
+                            </div>
+                            <div class="flex flex-col flex-1 min-w-0">
+                                <span class="text-amber-300 text-[11px] font-mono font-bold">★ 9.5 IMDb • 99% Phù hợp</span>
+                                <h4 class="font-headline font-bold text-white text-[15px] group-hover/card:text-secondary transition-colors truncate">
+                                    Sintel: The Dragon Chronicles
+                                </h4>
+                                <p class="text-on-surface-variant text-[12px] line-clamp-2 leading-relaxed">
+                                    Hành trình cô độc vượt qua hoang mạc băng giá tìm kiếm người bạn rồng nhỏ Scales.
+                                </p>
+                            </div>
+                            <span class="material-symbols-outlined text-white/30 group-hover/card:text-secondary group-hover/card:translate-x-1 transition-all">chevron_right</span>
+                        </div>
+
+                        <!-- Spotlight Card 3 -->
+                        <div
+                            class="spotlight-queue-card p-3 rounded-2xl glass-panel hover:bg-white/[0.08] border border-white/10 hover:border-tertiary/50 transition-all duration-300 cursor-pointer flex items-center gap-3.5 group/card active:scale-[0.99]"
+                            onclick="swapHeroSpotlight(2)"
+                        >
+                            <div class="relative w-20 h-24 rounded-xl overflow-hidden flex-shrink-0 bg-surface shadow-md">
+                                <img
+                                    src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&auto=format&fit=crop&q=85"
+                                    alt="Big Buck Bunny: The Great Escape"
+                                    class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                                />
+                                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/70 text-[9px] font-mono text-tertiary font-bold">HDR</span>
+                            </div>
+                            <div class="flex flex-col flex-1 min-w-0">
+                                <span class="text-amber-300 text-[11px] font-mono font-bold">★ 9.6 IMDb • Kiệt Tác 3D</span>
+                                <h4 class="font-headline font-bold text-white text-[15px] group-hover/card:text-tertiary transition-colors truncate">
+                                    Big Buck Bunny: The Great Escape
+                                </h4>
+                                <p class="text-on-surface-variant text-[12px] line-clamp-2 leading-relaxed">
+                                    Chú thỏ khổng lồ tốt bụng và cuộc phản công hài hước chống lại nhóm sóc tinh quái.
+                                </p>
+                            </div>
+                            <span class="material-symbols-outlined text-white/30 group-hover/card:text-tertiary group-hover/card:translate-x-1 transition-all">chevron_right</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== SECTION 2: BENTO HIGHLIGHTS SHOWCASE ==================== -->
+                <section class="flex flex-col gap-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-6 bg-gradient-to-b from-primary to-secondary rounded-full"></span>
+                            <h2 class="font-headline font-black text-2xl md:text-3xl text-white tracking-tight">
+                                Tiêu Điểm Bento • Tuyển Tập Đặc Sắc
+                            </h2>
+                        </div>
+                        <span class="text-xs font-mono text-on-surface-variant hidden sm:inline">Phát hành chuẩn 4K Ultra HD</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                        <!-- Bento Item 1: Large Featured Card (Span 2 cols on lg) -->
+                        <div
+                            class="md:col-span-2 lg:col-span-2 relative rounded-3xl overflow-hidden glass-panel border border-white/10 group/bento cursor-pointer min-h-[300px] flex flex-col justify-end p-6 hover:border-primary/40 transition-all duration-300 shadow-xl"
+                            onclick="openCinemaModal('Neural Drift: Reckoning', 'Đặc vụ Vance khám phá bí mật cấy ghép ký ức giả tạo.', '99%', '2026', '4 Seasons', 'Sci-Fi • Crime • 4K')"
+                        >
+                            <img
+                                src="/images/movies/neural-drift-reckoning_backdrop.jpg"
+                                alt="Neural Drift"
+                                class="absolute inset-0 w-full h-full object-cover group-hover/bento:scale-105 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#07080E] via-[#07080E]/60 to-transparent"></div>
+                            <div class="relative z-10 flex flex-col gap-2">
+                                <span class="px-2.5 py-1 rounded-full bg-secondary/30 text-secondary border border-secondary/40 font-mono text-[10px] font-bold w-fit">SERIES NGUYÊN BẢN</span>
+                                <h3 class="font-headline font-bold text-2xl text-white group-hover/bento:text-primary transition-colors">Neural Drift: Reckoning</h3>
+                                <p class="text-on-surface-variant text-xs line-clamp-2">Theo chân thanh tra Vance trong cuộc truy lùng tập đoàn thao túng ký ức nhân loại tại New Neo-Tokyo.</p>
+                                <div class="flex items-center gap-2 pt-2">
+                                    <span class="px-2 py-0.5 rounded bg-white/10 text-[11px] font-mono text-white">4K HDR</span>
+                                    <span class="px-2 py-0.5 rounded bg-white/10 text-[11px] font-mono text-white">DOLBY ATMOS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bento Item 2: Shadow Protocol -->
+                        <div
+                            class="relative rounded-3xl overflow-hidden glass-panel border border-white/10 group/bento cursor-pointer min-h-[300px] flex flex-col justify-end p-6 hover:border-primary/40 transition-all duration-300 shadow-xl"
+                            onclick="openCinemaModal('Shadow Protocol: Rain Assassin', 'Sát thủ ẩn danh đối đầu nghiệp đoàn ngầm xuyên biên giới.', '96%', '2025', '2h 12m', 'Action • Thriller')"
+                        >
+                            <img
+                                src="/images/movies/shadow-protocol_backdrop.jpg"
+                                alt="Shadow Protocol"
+                                class="absolute inset-0 w-full h-full object-cover group-hover/bento:scale-105 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#07080E] via-[#07080E]/60 to-transparent"></div>
+                            <div class="relative z-10 flex flex-col gap-1.5">
+                                <span class="px-2.5 py-1 rounded-full bg-primary/20 text-primary border border-primary/40 font-mono text-[10px] font-bold w-fit">BOM TẤN HÀNH ĐỘNG</span>
+                                <h3 class="font-headline font-bold text-lg text-white group-hover/bento:text-primary transition-colors">Shadow Protocol</h3>
+                                <p class="text-on-surface-variant text-xs line-clamp-2">Vũ điệu cận chiến dưới màn mưa axit.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bento Item 3: Hyper Velocity -->
+                        <div
+                            class="relative rounded-3xl overflow-hidden glass-panel border border-white/10 group/bento cursor-pointer min-h-[300px] flex flex-col justify-end p-6 hover:border-primary/40 transition-all duration-300 shadow-xl"
+                            onclick="openCinemaModal('Hyper Velocity: Supersonic Midnight', 'Đua xe từ trường siêu âm xuyên màn đêm Tokyo.', '95%', '2025', '1h 58m', 'Action • Racing')"
+                        >
+                            <img
+                                src="/images/movies/hyperdrive-velocity_backdrop.jpg"
+                                alt="Hyper Velocity"
+                                class="absolute inset-0 w-full h-full object-cover group-hover/bento:scale-105 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#07080E] via-[#07080E]/60 to-transparent"></div>
+                            <div class="relative z-10 flex flex-col gap-1.5">
+                                <span class="px-2.5 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 font-mono text-[10px] font-bold w-fit">SIÊU TỐC ĐỘ</span>
+                                <h3 class="font-headline font-bold text-lg text-white group-hover/bento:text-amber-300 transition-colors">Hyper Velocity</h3>
+                                <p class="text-on-surface-variant text-xs line-clamp-2">Đường đua điện tử rực sáng âm hưởng synthwave.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== SECTION 3: MOOD & GENRE DISCOVERY MATRIX ==================== -->
+                <section class="flex flex-col gap-5">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-6 bg-tertiary rounded-full"></span>
+                            <h2 class="font-headline font-black text-2xl md:text-3xl text-white tracking-tight">
+                                Khám Phá Theo Cảm Xúc &amp; Thể Loại
+                            </h2>
+                        </div>
+
+                        <!-- Mood Filter Tabs -->
+                        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1" id="mood-filter-container">
+                            <button class="mood-tab-btn active px-4 py-1.5 rounded-full text-xs font-bold bg-primary text-black transition-all cursor-pointer" onclick="filterByMood('all', this)">
+                                Tất Cả
+                            </button>
+                            <button class="mood-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white transition-all cursor-pointer whitespace-nowrap" onclick="filterByMood('scifi', this)">
+                                🚀 Sci-Fi Hại Não
+                            </button>
+                            <button class="mood-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white transition-all cursor-pointer whitespace-nowrap" onclick="filterByMood('action', this)">
+                                💥 Kích Thích Adrenaline
+                            </button>
+                            <button class="mood-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white transition-all cursor-pointer whitespace-nowrap" onclick="filterByMood('space', this)">
+                                🌌 Khám Phá Vũ Trụ
+                            </button>
+                            <button class="mood-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white transition-all cursor-pointer whitespace-nowrap" onclick="filterByMood('fantasy', this)">
+                                ✨ Kỳ Ảo Nghệ Thuật
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Responsive Movie Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="movie-grid-container">
+                        <!-- Card 1 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Tears of Steel: 2099', 'Phi công mạng giải mã lõi AI lượng tử.', '99%', '2026', '2h 42m', 'Sci-Fi • 4K')" data-genre="scifi">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/tears-of-steel_poster.jpg" alt="Neon Cyber" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-primary text-[10px] font-mono font-bold">★ 9.4 IMDb</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Tears of Steel</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('The Silent Abyss', 'Thám hiểm rãnh Mariana.', '98%', '2026', '2h 25m', 'Sci-Fi • Adventure')" data-genre="scifi">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/deep-abyss-expedition_poster.jpg" alt="Silent Abyss" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-amber-300 text-[10px] font-mono font-bold">★ 9.2 IMDb</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">The Silent Abyss</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Sintel: The Dragon Chronicles', 'Vượt tinh vân Orion giải mã cổng sao.', '99%', '2025', '2h 55m', 'Space • IMAX')" data-genre="space">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/sintel_poster.jpg" alt="Sintel: The Dragon Chronicles" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-secondary text-[10px] font-mono font-bold">★ 9.5 IMAX</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Sintel: The Dragon Chronicles</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Shadow Protocol', 'Sát thủ ẩn danh đối đầu nghiệp đoàn.', '96%', '2025', '2h 12m', 'Action')" data-genre="action">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/shadow-protocol_poster.jpg" alt="Shadow Protocol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-primary text-[10px] font-mono font-bold">★ 9.0 Action</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Shadow Protocol</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Big Buck Bunny: The Great Escape', 'Hàn gắn vũ trụ trên cổng tinh tú.', '99%', '2026', '2h 08m', 'Animation • Fantasy')" data-genre="fantasy">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/big-buck-bunny_poster.jpg" alt="Big Buck Bunny: The Great Escape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-tertiary text-[10px] font-mono font-bold">★ 9.6 Fantasy</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Big Buck Bunny: The Great Escape</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="movie-card group cursor-pointer" onclick="openCinemaModal('Hyper Velocity', 'Đua xe từ trường siêu âm.', '95%', '2025', '1h 58m', 'Action • Racing')" data-genre="action">
+                            <div class="aspect-[2/3] w-full relative rounded-2xl overflow-hidden bg-surface-container shadow-lg">
+                                <img src="/images/movies/hyperdrive-velocity_poster.jpg" alt="Hyper Velocity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-2.5 left-2.5 right-2.5">
+                                    <span class="text-amber-300 text-[10px] font-mono font-bold">★ 8.9 Racing</span>
+                                    <h4 class="font-headline font-bold text-white text-sm truncate">Hyper Velocity</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== SECTION 4: HOLOGRAPHIC TOP CHARTS ==================== -->
+                <section class="flex flex-col gap-4">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-6 bg-secondary rounded-full"></span>
+                        <h2 class="font-headline font-black text-2xl md:text-3xl text-white tracking-tight">
+                            Bảng Xếp Hạng Holographic Top 10
+                        </h2>
+                    </div>
+
+                    <div class="flex gap-6 overflow-x-auto no-scrollbar py-4 px-1" id="top-charts-slider">
+                        <!-- Rank 1 -->
+                        <div class="flex-shrink-0 flex items-center w-72 md:w-80 group/rank cursor-pointer" onclick="openCinemaModal('Tears of Steel: 2099', 'Phi công mạng giải mã lõi AI lượng tử.', '99%', '2026', '2h 42m', 'Sci-Fi • 4K')">
+                            <span class="font-headline font-black text-[120px] md:text-[140px] text-white/[0.08] group-hover/rank:text-primary/70 transition-colors leading-none select-none -mr-8 z-0">01</span>
+                            <div class="relative w-48 md:w-56 h-72 rounded-2xl overflow-hidden bg-surface-container shadow-2xl z-10 flex flex-col justify-end p-4 border border-white/10 group-hover/rank:border-primary/50 group-hover/rank:scale-105 transition-all duration-300">
+                                <img src="/images/movies/tears-of-steel_poster.jpg" alt="Top 1" class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+                                <div class="relative z-10">
+                                    <span class="text-primary text-[10px] font-mono font-bold">#1 THỊNH HÀNH</span>
+                                    <h4 class="font-headline font-bold text-white text-base">Tears of Steel</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rank 2 -->
+                        <div class="flex-shrink-0 flex items-center w-72 md:w-80 group/rank cursor-pointer" onclick="openCinemaModal('The Silent Abyss', 'Thám hiểm rãnh Mariana.', '98%', '2026', '2h 25m', 'Sci-Fi • Adventure')">
+                            <span class="font-headline font-black text-[120px] md:text-[140px] text-white/[0.08] group-hover/rank:text-secondary/70 transition-colors leading-none select-none -mr-8 z-0">02</span>
+                            <div class="relative w-48 md:w-56 h-72 rounded-2xl overflow-hidden bg-surface-container shadow-2xl z-10 flex flex-col justify-end p-4 border border-white/10 group-hover/rank:border-secondary/50 group-hover/rank:scale-105 transition-all duration-300">
+                                <img src="/images/movies/deep-abyss-expedition_poster.jpg" alt="Top 2" class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+                                <div class="relative z-10">
+                                    <span class="text-secondary text-[10px] font-mono font-bold">#2 RẠP CHIẾU</span>
+                                    <h4 class="font-headline font-bold text-white text-base">The Silent Abyss</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rank 3 -->
+                        <div class="flex-shrink-0 flex items-center w-72 md:w-80 group/rank cursor-pointer" onclick="openCinemaModal('Sintel: The Dragon Chronicles', 'Vượt tinh vân Orion giải mã cổng sao.', '99%', '2025', '2h 55m', 'Space • IMAX')">
+                            <span class="font-headline font-black text-[120px] md:text-[140px] text-white/[0.08] group-hover/rank:text-tertiary/70 transition-colors leading-none select-none -mr-8 z-0">03</span>
+                            <div class="relative w-48 md:w-56 h-72 rounded-2xl overflow-hidden bg-surface-container shadow-2xl z-10 flex flex-col justify-end p-4 border border-white/10 group-hover/rank:border-tertiary/50 group-hover/rank:scale-105 transition-all duration-300">
+                                <img src="/images/movies/sintel_poster.jpg" alt="Top 3" class="absolute inset-0 w-full h-full object-cover" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+                                <div class="relative z-10">
+                                    <span class="text-tertiary text-[10px] font-mono font-bold">#3 KHÁN GIẢ BÌNH CHỌN</span>
+                                    <h4 class="font-headline font-bold text-white text-base">Sintel: The Dragon Chronicles</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- ==================== CINEMA THEATER MODAL ==================== -->
+        <div
+            id="trailer-modal"
+            class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-2xl opacity-0 pointer-events-none transition-all duration-300 select-none"
+        >
+            <div
+                id="modal-box"
+                class="relative w-full max-w-5xl rounded-3xl overflow-hidden glass-panel border border-white/10 shadow-[0_25px_70px_rgba(0,0,0,0.95),0_0_35px_rgba(0,242,254,0.3)] transform scale-95 transition-transform duration-300 flex flex-col"
+            >
+                <!-- Video Stage -->
+                <div class="relative w-full aspect-video bg-black flex items-center justify-center group/player" id="modal-video-container">
+                    <img id="modal-backdrop-img" class="absolute inset-0 w-full h-full object-cover hidden" alt="Backdrop" />
+                    <video id="modal-video-player" class="absolute inset-0 w-full h-full object-contain" playsinline></video>
+                    
+                    <!-- Cinema HUD Dock -->
+                    <!-- ==================== REUSABLE CINEMA PLAYER HUD CONTROL DOCK ==================== -->
+<!-- Center Flash Feedback Ripple / Icon Overlay -->
+<div
+    id="modal-center-flash"
+    class="absolute inset-0 flex items-center justify-center pointer-events-none z-30 select-none"
+    aria-hidden="true"
+>
+    <div
+        id="modal-center-flash-box"
+        class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-surface-container-highest/85 backdrop-blur-2xl text-white flex items-center justify-center shadow-[0_0_35px_rgba(0,242,254,0.4)] border border-primary/30 opacity-0 pointer-events-none"
+    >
+        <span
+            id="modal-center-flash-icon"
+            class="material-symbols-outlined text-[36px] md:text-[44px] text-primary ml-1"
+            style="font-variation-settings: 'FILL' 1"
+            >play_arrow</span
+        >
+    </div>
+</div>
+
+<!-- Top Overlay Actions -->
+<div
+    id="modal-player-top-actions"
+    class="player-top-actions absolute top-4 right-4 z-40 flex items-center gap-3 transition-opacity duration-300"
+>
+    <button
+        id="modal-modal-close-btn"
+        class="player-modal-close-btn size-10 rounded-full bg-surface-container-high/80 hover:bg-primary hover:text-black text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-md shadow-xl border border-white/10 group/close"
+        aria-label="Close Video Player"
+        type="button"
+    >
+        <span class="material-symbols-outlined text-[20px] group-hover/close:rotate-90 transition-transform duration-200">close</span>
+    </button>
+</div>
+
+<!-- Live Interactive Scrubber & Controls (Cinema HUD Floating Dock) -->
+<div id="modal-player-control-dock" class="absolute bottom-0 left-0 right-0 z-30 px-4 md:px-6 pb-4 pt-10 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/60 to-transparent flex flex-col gap-2 transition-opacity duration-300 cursor-default">
+    <!-- Scrubber Track Timeline with Expanding Track & Neon Cyan Thumb -->
+    <div
+        id="modal-scrubber-timeline"
+        class="relative w-full h-5 flex items-center group/scrubber cursor-pointer select-none"
+    >
+        <!-- Baseline & Played Track -->
+        <div class="relative w-full h-1.5 group-hover/scrubber:h-2.5 bg-white/20 rounded-full overflow-hidden transition-all duration-200">
+            <div
+                id="modal-buffered-bar"
+                class="absolute top-0 left-0 h-full w-0 bg-white/30 rounded-full transition-[width] duration-150"
+            ></div>
+            <div
+                id="modal-scrubber-fill"
+                class="absolute top-0 left-0 h-full w-0 bg-primary rounded-full shadow-[0_0_14px_rgba(0,242,254,0.9)] transition-all duration-75"
+            ></div>
+        </div>
+        <!-- Pure Cyan Round Thumb -->
+        <div
+            id="modal-scrubber-thumb"
+            class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(0,242,254,1)] scale-0 group-hover/scrubber:scale-100 transition-transform duration-150 pointer-events-none z-20"
+            style="left: 0%;"
+        ></div>
+        <!-- Floating Hover Time Tooltip -->
+        <div
+            id="modal-scrubber-tooltip"
+            class="absolute -top-7 -translate-x-1/2 opacity-0 pointer-events-none font-mono text-[11px] bg-surface-container-highest/90 px-2 py-0.5 rounded-lg text-primary shadow-xl transition-opacity whitespace-nowrap z-40 border border-primary/30"
+        >
+            00:00
+        </div>
+    </div>
+
+    <!-- Control Toolbar Row -->
+    <div
+        class="flex items-center justify-between text-white font-label-badge text-label-badge select-none"
+    >
+        <div class="flex items-center gap-3">
+            <button
+                id="modal-ctrl-play-btn"
+                class="w-9 h-9 rounded-full bg-white/10 hover:bg-primary hover:text-black text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                title="Play / Pause"
+                type="button"
+            >
+                <span
+                    id="modal-ctrl-play-icon"
+                    class="material-symbols-outlined text-[22px]"
+                    style="font-variation-settings: 'FILL' 1"
+                    >pause</span
+                >
+            </button>
+            <button
+                id="modal-ctrl-replay-btn"
+                class="w-8 h-8 rounded-full hover:bg-white/15 text-white/90 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                title="Replay 10s"
+                type="button"
+            >
+                <span class="material-symbols-outlined text-[19px]">replay_10</span>
+            </button>
+            <button
+                id="modal-ctrl-forward-btn"
+                class="w-8 h-8 rounded-full hover:bg-white/15 text-white/90 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                title="Forward 10s"
+                type="button"
+            >
+                <span class="material-symbols-outlined text-[19px]">forward_10</span>
+            </button>
+            <span id="modal-ctrl-time" class="text-white/80 font-mono text-xs tracking-wider ml-1"
+                >00:00 / 00:00</span
+            >
+        </div>
+        <div class="flex items-center gap-3">
+            <span
+                class="px-2.5 py-0.5 rounded-full bg-primary/15 text-primary text-[10px] font-extrabold tracking-wider border border-primary/30 shadow-[0_0_12px_rgba(0,242,254,0.35)]"
+                >4K ULTRA HD</span
+            >
+            <!-- Expandable Volume with Cyan Thumb -->
+            <div class="relative flex items-center group/vol">
+                <button
+                    id="modal-ctrl-volume-btn"
+                    class="w-8 h-8 rounded-full hover:bg-white/15 text-white/90 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                    title="Mute / Unmute"
+                    type="button"
+                >
+                    <span id="modal-ctrl-volume-icon" class="material-symbols-outlined text-[20px]">volume_up</span>
+                </button>
+                <div class="w-0 group-hover/vol:w-16 md:group-hover/vol:w-20 transition-all duration-200 overflow-hidden flex items-center px-0 group-hover/vol:px-1.5 cursor-pointer">
+                    <div id="modal-ctrl-volume-bar" class="relative w-full h-1.5 bg-white/20 rounded-full py-2 flex items-center">
+                        <div class="relative w-full h-1.5 bg-white/20 rounded-full">
+                            <div id="modal-ctrl-volume-fill" class="absolute top-0 left-0 h-full w-1/2 bg-primary rounded-full"></div>
+                            <div id="modal-ctrl-volume-thumb" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_8px_rgba(0,242,254,0.9)] scale-0 group-hover/vol:scale-100 transition-transform" style="left: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button
+                id="modal-ctrl-fullscreen-btn"
+                class="w-8 h-8 rounded-full hover:bg-white/15 text-white/90 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                title="Fullscreen"
+                type="button"
+            >
+                <span id="modal-ctrl-fullscreen-icon" class="material-symbols-outlined text-[20px]">fullscreen</span>
+            </button>
+        </div>
+    </div>
+</div>
+                </div>
+
+                <!-- Info Drawer -->
+                <div class="p-6 md:p-8 flex flex-col gap-3 bg-[#0a0d18]">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span id="modal-match" class="px-2.5 py-0.5 rounded-full bg-primary/20 text-primary text-xs font-mono font-bold">99% MATCH</span>
+                            <span id="modal-year" class="text-white/70 text-xs font-mono">2026</span>
+                            <span id="modal-runtime" class="text-white/70 text-xs font-mono">2h 42m</span>
+                        </div>
+                        <span id="modal-genres" class="text-xs text-secondary font-mono">Sci-Fi • 4K</span>
+                    </div>
+                    <h3 id="modal-title" class="font-headline font-black text-2xl text-white">Tears of Steel: 2099</h3>
+                    <p id="modal-desc" class="text-on-surface-variant text-sm leading-relaxed">Mô tả phim chi tiết...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <!-- ==================== AURA NOVA BRAND FOOTER ==================== -->
+<footer class="w-full bg-[#05060b] text-on-surface-variant py-space-xl md:py-space-2xl border-t border-white/5 relative overflow-hidden select-none">
+    <!-- Ambient glow in footer -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[180px] bg-primary/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-[1680px] mx-auto px-4 md:px-8 relative z-10">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-space-lg pb-space-lg border-b border-white/5">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                    <img src="/logo.png" alt="Aura Logo" class="w-full h-full rounded-[10px] object-cover" />
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-headline font-black text-white text-base tracking-tight">AURA <span class="text-aura-gradient">NOVA</span></span>
+                    <span class="text-[9px] text-primary font-mono uppercase tracking-widest font-bold">Next-Gen Cinema Ecosystem</span>
+                </div>
+            </div>
+
+            <!-- Server Status & Bitrate Indicator -->
+            <div class="flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <span class="text-primary font-mono font-medium text-[11px]">Stream 2.0 Engine Online</span>
+                <span class="text-white/20">|</span>
+                <span class="text-white/60 font-mono text-[11px]">4K Ultra-Low Latency</span>
+            </div>
+
+            <div class="flex items-center gap-space-lg">
+                <a aria-label="Rạp Chiếu" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/watch_a_film_page.html"><span class="material-symbols-outlined text-[22px]">theaters</span></a>
+                <a aria-label="Kho Phim" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/my_list.html"><span class="material-symbols-outlined text-[22px]">video_library</span></a>
+                <a aria-label="Gói Cước" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/pricing.html"><span class="material-symbols-outlined text-[22px]">workspace_premium</span></a>
+                <a aria-label="Hỗ Trợ" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/help.html"><span class="material-symbols-outlined text-[22px]">help</span></a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-space-md gap-x-gutter-lg mb-space-lg font-body-sm text-xs">
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/help.html">Âm Thanh Vòm Dolby Atmos</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html">Trung Tâm Media 4K</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html#privacy">Chính Sách Bảo Mật</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/help.html">Trung Tâm Trợ Giúp</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html">Thông Tin Tập Đoàn</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html#terms">Điều Khoản Dịch Vụ</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/pricing.html">Gói Cước &amp; Hội Viên VIP</a>
+                <a class="hover:text-primary transition-colors" href="/pages/contact.html">Liên Hệ Kỹ Thuật</a>
+                <a class="hover:text-primary transition-colors" href="/pages/select_profile.html">Hồ Sơ Người Xem</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/search_page.html?type=movie">Danh Mục Phim Chiếu Rạp</a>
+                <a class="hover:text-primary transition-colors" href="/pages/series_detail.html">Series Độc Quyền AURA</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html#legal">Giấy Phép Bản Quyền</a>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md pt-space-md border-t border-white/5">
+            <a class="px-4 py-1.5 rounded-full font-mono text-[11px] bg-white/[0.04] text-white hover:bg-primary hover:text-black border border-white/10 transition-all" href="/pages/help.html">
+                AURA NOVA SERVICE CENTER
+            </a>
+            <p class="font-mono text-[10px] text-on-surface-variant/70 uppercase tracking-widest">
+                © 2026 AURA NOVA CINEMA ENTERTAINMENT INC. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- ==================== NOVA AI CINEMATIC CO-PILOT WIDGET ==================== -->
+<div id="nova-ai-widget" class="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 select-none">
+    <!-- Chat Drawer Card -->
+    <div
+        id="nova-ai-drawer"
+        class="absolute bottom-[calc(100%+14px)] right-0 w-[340px] sm:w-[380px] max-w-[calc(100vw-2rem)] h-[460px] max-h-[85vh] bg-[#0c1022]/95 backdrop-blur-2xl border border-primary/30 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_25px_rgba(0,242,254,0.25)] flex flex-col overflow-hidden transition-all duration-300 transform scale-95 opacity-0 pointer-events-none translate-y-4"
+        style="display: none;"
+    >
+        <!-- Header -->
+        <div class="px-4 py-3.5 bg-white/[0.04] border-b border-white/10 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-[0_0_12px_rgba(0,242,254,0.5)]">
+                    <span class="material-symbols-outlined text-[16px] text-black">auto_awesome</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-headline font-bold text-white text-[13px] leading-tight flex items-center gap-1.5">
+                        <span>NOVA AI</span>
+                        <span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary text-[9px] font-mono">CO-PILOT</span>
+                    </span>
+                    <span class="text-[10px] text-primary/80 font-mono">Trợ lý điện ảnh thông minh</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-1">
+                <button id="nova-ai-clear-btn" class="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center text-on-surface-variant hover:text-white transition-colors cursor-pointer" title="Làm mới hội thoại" type="button">
+                    <span class="material-symbols-outlined text-[16px]">refresh</span>
+                </button>
+                <button id="nova-ai-close-btn" class="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center text-on-surface-variant hover:text-white transition-colors cursor-pointer" title="Đóng" type="button">
+                    <span class="material-symbols-outlined text-[18px]">close</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Stream -->
+        <div id="nova-ai-messages" class="p-4 flex flex-col gap-3 flex-1 min-h-0 overflow-y-auto text-xs scrollbar-thin">
+            <div class="flex items-start gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span class="material-symbols-outlined text-[15px] text-black">auto_awesome</span>
+                </div>
+                <div class="bg-surface-container-high border border-white/10 p-3 rounded-2xl rounded-tl-sm max-w-[85%] text-xs leading-relaxed text-white shadow-sm">
+                    Xin chào! Tôi là **NOVA AI**, trợ lý rạp chiếu AURA NOVA. Tôi có thể phân tích và đề xuất phim theo tâm trạng hoặc tiêu chuẩn kỹ thuật (4K, IMAX, Dolby Atmos). Bạn muốn xem gì hôm nay? ✨
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Mood Chips -->
+        <div class="px-3 pb-2 flex flex-wrap gap-1.5 flex-shrink-0">
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Gợi ý phim Sci-Fi viễn tưởng hại não">
+                🚀 Sci-Fi Hại Não
+            </button>
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Tìm bom tấn hành động xả stress đỉnh cao">
+                💥 Hành Động
+            </button>
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Gợi ý phim du hành không gian vũ trụ IMAX">
+                🌌 Vũ Trụ
+            </button>
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Chọn ngẫu nhiên 1 phim đỉnh nhất tối nay">
+                🎲 Chọn Ngẫu Nhiên
+            </button>
+        </div>
+
+        <!-- Chat Input Form -->
+        <form id="nova-ai-form" class="p-3 bg-white/[0.03] border-t border-white/10 flex items-center gap-2 flex-shrink-0">
+            <input
+                id="nova-ai-input"
+                class="flex-1 bg-white/[0.06] text-white px-3.5 py-2 rounded-full text-xs border border-white/10 focus:border-primary focus:outline-none placeholder:text-on-surface-variant/60"
+                placeholder="Hỏi NOVA AI về phim, diễn viên..."
+                type="text"
+                autocomplete="off"
+            />
+            <button
+                type="submit"
+                class="w-8 h-8 rounded-full bg-primary hover:bg-white text-black flex items-center justify-center transition-colors cursor-pointer flex-shrink-0 shadow-md"
+                title="Gửi"
+            >
+                <span class="material-symbols-outlined text-[16px] ml-0.5">send</span>
+            </button>
+        </form>
+    </div>
+
+    <!-- The Holographic Energy Orb Button -->
+    <button
+        id="nova-ai-launcher"
+        type="button"
+        class="relative w-14 h-14 rounded-full bg-gradient-to-tr from-primary via-secondary to-tertiary p-0.5 shadow-[0_0_30px_rgba(0,242,254,0.6)] hover:shadow-[0_0_45px_rgba(0,242,254,0.9)] transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer group"
+        title="Trợ Lý Điện Ảnh NOVA AI"
+    >
+        <div class="w-full h-full rounded-full bg-[#07080E] flex items-center justify-center relative overflow-hidden">
+            <!-- Breathing radial glow in center -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 animate-pulse"></div>
+            <span class="material-symbols-outlined text-[26px] text-primary group-hover:rotate-12 transition-transform duration-300 relative z-10">auto_awesome</span>
+        </div>
+    </button>
+</div>
+
+
+        <!-- Page Dynamic Scripts -->
+        <script>
+            // Spotlight Queue items
+            const SPOTLIGHT_ITEMS = [
+                {
+                    title: 'The Silent Abyss: Deep Trench',
+                    synopsis: 'Mười ngàn mét dưới đáy rãnh Mariana, nhóm tàu ngầm thám hiểm đối đầu sinh vật cổ đại canh giữ nguồn năng lượng địa nhiệt bí ẩn.',
+                    poster: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&auto=format&fit=crop&q=85',
+                    video: '/api/stream/deep_abyss_expedition.mp4'
+                },
+                {
+                    title: 'Sintel: The Dragon Chronicles: Celestial Gate',
+                    synopsis: 'Chiến hạm thám hiểm băng qua tinh vân Orion để giải mã tàn tích của một nền văn minh sơ khai đã kiến tạo mạng lưới lỗ sâu vũ trụ.',
+                    poster: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1600&auto=format&fit=crop&q=85',
+                    video: '/api/stream/celestial_starlight.mp4'
+                },
+                {
+                    title: 'Big Buck Bunny: The Great Escape: Aurora',
+                    synopsis: 'Trên ngôi đền lơ lửng giữa biển sao, thiếu nữ cung thủ linh hồn cùng linh thú huyền bí bước vào chuyến phiêu lưu hàn gắn vũ trụ rạn nứt.',
+                    poster: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600&auto=format&fit=crop&q=85',
+                    video: '/api/stream/animated_woodland_escape.mp4'
+                }
+            ];
+
+            let isPreviewPlaying = false;
+            let currentSpotlightIndex = -1;
+
+            window.swapHeroSpotlight = function(index) {
+                const item = SPOTLIGHT_ITEMS[index];
+                if (!item) return;
+
+                currentSpotlightIndex = index;
+                const titleEl = document.getElementById('hero-title');
+                const synEl = document.getElementById('hero-synopsis');
+                const bgEl = document.getElementById('hero-backdrop-img');
+                const vidEl = document.getElementById('hero-active-video');
+
+                if (titleEl) titleEl.innerText = item.title;
+                if (synEl) synEl.innerText = item.synopsis;
+                if (bgEl) bgEl.style.backgroundImage = `url('${item.poster}')`;
+
+                if (vidEl) {
+                    vidEl.src = item.video;
+                    if (isPreviewPlaying) {
+                        vidEl.play().catch(() => {});
+                    }
+                }
+            };
+
+            window.toggleHeroVideoPreview = function() {
+                const vidEl = document.getElementById('hero-active-video');
+                const bgEl = document.getElementById('hero-backdrop-img');
+                const label = document.getElementById('hero-preview-label');
+                const icon = document.getElementById('hero-preview-icon');
+                const muteBtn = document.getElementById('hero-mute-toggle-btn');
+
+                if (!vidEl) return;
+
+                if (!isPreviewPlaying) {
+                    if (!vidEl.src) {
+                        vidEl.src = '/api/stream/celestial_starlight.mp4';
+                    }
+                    vidEl.classList.remove('hidden');
+                    if (bgEl) bgEl.classList.add('opacity-0');
+                    vidEl.play().catch(() => {});
+                    isPreviewPlaying = true;
+                    if (label) label.innerText = 'Dừng Xem';
+                    if (icon) icon.innerText = 'pause';
+                    if (muteBtn) muteBtn.classList.remove('hidden');
+                } else {
+                    vidEl.pause();
+                    vidEl.classList.add('hidden');
+                    if (bgEl) bgEl.classList.remove('opacity-0');
+                    isPreviewPlaying = false;
+                    if (label) label.innerText = 'Xem Trực Tiếp';
+                    if (icon) icon.innerText = 'smart_display';
+                    if (muteBtn) muteBtn.classList.add('hidden');
+                }
+            };
+
+            window.toggleHeroAudio = function() {
+                const vidEl = document.getElementById('hero-active-video');
+                const icon = document.getElementById('hero-mute-icon');
+                if (!vidEl) return;
+
+                vidEl.muted = !vidEl.muted;
+                if (icon) {
+                    icon.innerText = vidEl.muted ? 'volume_off' : 'volume_up';
+                }
+            };
+
+            window.launchCinemaFromHero = function() {
+                openCinemaModal('Tears of Steel: 2099', 'Phi công mạng giải mã lõi AI lượng tử.', '99%', '2026', '2h 42m', 'Cyberpunk • Sci-Fi Noir • IMAX');
+            };
+
+            window.openCinemaModal = function(title, desc, match, year, runtime, genres) {
+                const modal = document.getElementById("trailer-modal");
+                const box = document.getElementById("modal-box");
+                const video = document.getElementById("modal-video-player");
+
+                document.getElementById("modal-title").innerText = title;
+                document.getElementById("modal-desc").innerText = desc;
+                document.getElementById("modal-match").innerText = match;
+                document.getElementById("modal-year").innerText = year;
+                document.getElementById("modal-runtime").innerText = runtime;
+                document.getElementById("modal-genres").innerText = genres;
+
+                modal.classList.remove("opacity-0", "pointer-events-none");
+                modal.classList.add("opacity-100");
+                box.classList.remove("scale-95");
+                box.classList.add("scale-100");
+
+                if (video) {
+                    const nextVideo = typeof window.getNextVideoToPlay === 'function' ? window.getNextVideoToPlay() : 'neon_cyber_odyssey.mp4';
+                    video.src = `/api/stream/${nextVideo}`;
+                    video.play().catch(() => {});
+                }
+            };
+
+            window.closeModal = function() {
+                const modal = document.getElementById("trailer-modal");
+                const box = document.getElementById("modal-box");
+                const video = document.getElementById("modal-video-player");
+
+                modal.classList.add("opacity-0", "pointer-events-none");
+                modal.classList.remove("opacity-100");
+                box.classList.add("scale-95");
+                box.classList.remove("scale-100");
+
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            };
+
+            window.filterByMood = function(mood, btn) {
+                document.querySelectorAll('.mood-tab-btn').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-black', 'active');
+                    b.classList.add('bg-white/[0.05]', 'text-white');
+                });
+                btn.classList.add('bg-primary', 'text-black', 'active');
+                btn.classList.remove('bg-white/[0.05]', 'text-white');
+
+                const cards = document.querySelectorAll('#movie-grid-container .movie-card');
+                cards.forEach(c => {
+                    if (mood === 'all' || c.getAttribute('data-genre') === mood) {
+                        c.classList.remove('hidden');
+                    } else {
+                        c.classList.add('hidden');
+                    }
+                });
+            };
+
+            window.toggleListHero = function(btn) {
+                const inList = btn.classList.contains('text-primary');
+                if (!inList) {
+                    btn.classList.add('text-primary', 'border-primary/50');
+                    btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">bookmark_added</span>';
+                } else {
+                    btn.classList.remove('text-primary', 'border-primary/50');
+                    btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">bookmark_add</span>';
+                }
+            };
+        </script>
+    </body>
+</html>

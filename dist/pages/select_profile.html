@@ -1,0 +1,1263 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="web_standard" name="shell-type" />
+                <!-- ==================== CINESTREAM GLOBAL HEAD RESOURCES ==================== -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <!-- Favicon & App Icons -->
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+
+        <style>
+            @layer base {
+                html,
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+                body {
+                    overscroll-behavior: none;
+                    background-color: #07080e;
+                    color: #f1f5f9;
+                }
+                main > :first-child {
+                    margin-top: 0 !important;
+                }
+                main > :last-child {
+                    margin-bottom: 0 !important;
+                }
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            .material-symbols-outlined {
+                font-family: "Material Symbols Outlined";
+                font-weight: normal;
+                font-style: normal;
+                font-size: 24px;
+                line-height: 1;
+                letter-spacing: normal;
+                text-transform: none;
+                display: inline-block;
+                white-space: nowrap;
+                word-wrap: normal;
+                direction: ltr;
+                -webkit-font-feature-settings: "liga";
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* Custom Neo-Luminescent glassmorphism and glow utilities */
+            .glass-panel {
+                background: rgba(13, 17, 34, 0.72);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .glass-dock {
+                background: rgba(10, 13, 24, 0.85);
+                backdrop-filter: blur(28px);
+                -webkit-backdrop-filter: blur(28px);
+                border: 1px solid rgba(0, 242, 254, 0.22);
+                box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px -8px rgba(0, 242, 254, 0.25);
+            }
+            .neon-cyan-glow {
+                box-shadow: 0 0 35px -5px rgba(0, 242, 254, 0.55);
+            }
+            .neon-cyan-glow-sm {
+                box-shadow: 0 0 16px -3px rgba(0, 242, 254, 0.45);
+            }
+            .neon-purple-glow {
+                box-shadow: 0 0 35px -5px rgba(121, 40, 202, 0.55);
+            }
+            .neon-emerald-glow {
+                box-shadow: 0 0 35px -5px rgba(0, 245, 160, 0.55);
+            }
+            .neon-red-glow {
+                box-shadow: 0 0 35px -5px rgba(0, 242, 254, 0.5);
+            }
+            .neon-red-glow-sm {
+                box-shadow: 0 0 15px -3px rgba(0, 242, 254, 0.4);
+            }
+            .text-aura-gradient {
+                background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 50%, #7928CA 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .bg-aura-gradient {
+                background: linear-gradient(135deg, #00F2FE 0%, #7928CA 100%);
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+        <script>
+            (function() {
+                const _w = console.warn;
+                console.warn = function(...args) {
+                    if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+                    _w.apply(console, args);
+                };
+            })();
+        </script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            tertiary: "#00F5A0",
+                            "outline-variant": "#17203b",
+                            "on-surface": "#f1f5f9",
+                            background: "#07080e",
+                            "inverse-on-surface": "#1e293b",
+                            "tertiary-container": "#06b6d4",
+                            "on-tertiary-fixed": "#022c22",
+                            "surface-container-high": "#171e3b",
+                            "surface-variant": "#1e274b",
+                            "primary-fixed": "#cffafe",
+                            "on-tertiary-fixed-variant": "#065f46",
+                            "on-primary-fixed-variant": "#0e7490",
+                            primary: "#4facfe",
+                            "surface-container-low": "#0d1122",
+                            "inverse-primary": "#0891b2",
+                            "tertiary-fixed-dim": "#6ee7b7",
+                            "on-secondary-fixed": "#3b0764",
+                            "on-surface-variant": "#94a3b8",
+                            "tertiary-fixed": "#a7f3d0",
+                            "secondary-container": "#7928CA",
+                            "primary-container": "#00F2FE",
+                            "surface-container-lowest": "#030408",
+                            surface: "#0a0d18",
+                            "primary-fixed-dim": "#a5f3fc",
+                            outline: "#273560",
+                            "on-secondary-container": "#ffffff",
+                            "on-error-container": "#fecdd3",
+                            "on-primary": "#04101e",
+                            "surface-tint": "#00F2FE",
+                            "on-background": "#f1f5f9",
+                            "error-container": "#9f1239",
+                            "surface-bright": "#25315e",
+                            "on-primary-container": "#030712",
+                            "on-primary-fixed": "#164e63",
+                            "on-secondary": "#ffffff",
+                            secondary: "#b800ff",
+                            error: "#f43f5e",
+                            "on-tertiary": "#022c22",
+                            "on-secondary-fixed-variant": "#581c87",
+                            "secondary-fixed": "#f3e8ff",
+                            "surface-container-highest": "#212a52",
+                            "inverse-surface": "#f1f5f9",
+                            "secondary-fixed-dim": "#d8b4fe",
+                            "on-error": "#ffffff",
+                            "surface-dim": "#0a0d18",
+                            "on-tertiary-container": "#ffffff",
+                            "surface-container": "#11162d",
+                            "aura-cyan": "#00F2FE",
+                            "aura-purple": "#7928CA",
+                            "aura-emerald": "#00F5A0",
+                            "aura-violet": "#B800FF",
+                        },
+                        borderRadius: { DEFAULT: "0.375rem", lg: "0.75rem", xl: "1rem", "2xl": "1.5rem", full: "9999px" },
+                        spacing: {
+                            "gutter-sm": "1rem",
+                            "space-sm": "0.5rem",
+                            "space-xs": "0.25rem",
+                            "space-lg": "1.5rem",
+                            gutter: "1.5rem",
+                            "gutter-lg": "2rem",
+                            margin: "2rem",
+                            "space-md": "1rem",
+                            "margin-mobile": "1rem",
+                            "margin-desktop": "3.5rem",
+                            "space-xl": "2.5rem",
+                            "space-2xl": "4rem",
+                        },
+                        fontFamily: {
+                            "label-md": ["Plus Jakarta Sans"],
+                            "headline-sm": ["Outfit"],
+                            "label-badge": ["Plus Jakarta Sans"],
+                            "body-sm": ["Plus Jakarta Sans"],
+                            "headline-xl": ["Outfit"],
+                            "headline-xl-mobile": ["Outfit"],
+                            "display-hero-mobile": ["Outfit"],
+                            "display-hero": ["Outfit"],
+                            "body-md": ["Plus Jakarta Sans"],
+                            "label-lg": ["Plus Jakarta Sans"],
+                            "body-lg": ["Plus Jakarta Sans"],
+                            "headline-lg": ["Outfit"],
+                        },
+                        fontSize: {
+                            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }],
+                            "headline-sm": ["20px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" }],
+                            "label-badge": ["10px", { lineHeight: "12px", letterSpacing: "0.08em", fontWeight: "700" }],
+                            "body-sm": ["13px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+                            "headline-xl": [
+                                "40px",
+                                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" },
+                            ],
+                            "headline-xl-mobile": [
+                                "28px",
+                                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" },
+                            ],
+                            "display-hero-mobile": [
+                                "36px",
+                                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" },
+                            ],
+                            "display-hero": [
+                                "64px",
+                                { lineHeight: "72px", letterSpacing: "-0.03em", fontWeight: "800" },
+                            ],
+                            "body-md": ["15px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "400" }],
+                            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "600" }],
+                            "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "400" }],
+                            "headline-lg": [
+                                "28px",
+                                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+                            ],
+                        },
+                    },
+                },
+            };
+        </script>
+      <script type="module" crossorigin src="/assets/player-Ck4on4dO.js"></script>
+      <script type="module" crossorigin src="/assets/nav-BbPJ7FoU.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/player-rMOXpmRt.css">
+    </head>
+    <body
+        class="bg-surface-container-lowest font-body-md text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary-container selection:text-on-primary-container"
+    >
+        <!-- ==================== AURA NOVA DESKTOP LEFT SIDEBAR RAIL ==================== -->
+<aside
+    id="aura-sidebar-rail"
+    class="hidden md:flex fixed top-0 left-0 h-screen w-20 hover:w-64 transition-all duration-300 ease-out z-50 glass-dock border-r border-white/10 flex-col justify-between py-6 px-3.5 group select-none shadow-[8px_0_35px_rgba(0,0,0,0.85)] overflow-x-hidden"
+>
+    <!-- Top Brand Logo -->
+    <div class="flex flex-col gap-6">
+        <a href="/index.html" class="flex items-center gap-3.5 px-2 py-1 overflow-hidden" title="AURA NOVA Cinema">
+            <div class="w-11 h-11 flex-shrink-0 rounded-2xl bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-[0_0_20px_rgba(0,242,254,0.6)]">
+                <img src="/logo.png" alt="Aura Nova Logo" class="w-full h-full rounded-[14px] object-cover bg-surface" />
+            </div>
+            <div class="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+                <span class="font-headline font-extrabold text-[18px] tracking-tight text-white leading-tight">
+                    AURA <span class="text-aura-gradient">NOVA</span>
+                </span>
+                <span class="text-[9px] font-mono tracking-widest text-primary uppercase -mt-0.5 font-bold">
+                    Cinema OS 3.0
+                </span>
+            </div>
+        </a>
+
+        <!-- Main Navigation Links -->
+        <nav class="flex flex-col gap-2 mt-2" data-active-classes="bg-primary/20 text-primary border-primary/40 shadow-[0_0_20px_rgba(0,242,254,0.35)]">
+            <a
+                href="/index.html"
+                data-path="home"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Trang Chủ (Home)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-primary flex-shrink-0">grid_view</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Trang Chủ
+                </span>
+            </a>
+
+            <a
+                href="/pages/search_page.html"
+                data-path="movies"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Kho Phim 4K (Movies)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-secondary flex-shrink-0">movie</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Kho Phim 4K
+                </span>
+            </a>
+
+            <a
+                href="/pages/series_detail.html"
+                data-path="series"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Series Độc Quyền"
+            >
+                <span class="material-symbols-outlined text-[24px] text-tertiary flex-shrink-0">tv_gen</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Series Nguyên Bản
+                </span>
+            </a>
+
+            <a
+                href="/pages/watch_a_film_page.html?id=neon-cyber-odyssey"
+                data-path="theater"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Rạp Chiếu IMAX (Cinema)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-primary flex-shrink-0">theaters</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Rạp Trực Tuyến
+                </span>
+            </a>
+
+            <a
+                href="/pages/my_list.html"
+                data-path="my-list"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav relative"
+                title="Kho Lưu Trữ (My Vault)"
+            >
+                <div class="relative flex-shrink-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[24px] text-secondary flex-shrink-0">video_library</span>
+                    <span class="watchlist-dot-badge hidden absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary border-2 border-[#0a0d18] shadow-[0_0_8px_rgba(0,242,254,1)]"></span>
+                </div>
+                <div class="flex items-center justify-between flex-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+                    <span class="font-label-lg text-[13px] font-semibold">Kho Của Tôi</span>
+                    <span class="watchlist-count-badge hidden ml-2 px-2 py-0.5 rounded-full text-[10px] bg-primary text-black font-bold font-mono"></span>
+                </div>
+            </a>
+
+            <a
+                href="/pages/pricing.html"
+                data-path="pricing"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Hội Viên VIP (Lounge)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-amber-400 flex-shrink-0">workspace_premium</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Gói Hội Viên VIP
+                </span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Bottom Sidebar Section (NOVA AI trigger & Profile) -->
+    <div class="flex flex-col gap-3 pt-4 border-t border-white/5">
+        <!-- Quick AI Launcher Button -->
+        <button
+            id="sidebar-nova-ai-btn"
+            type="button"
+            class="flex items-center gap-4 px-3 py-2.5 rounded-2xl bg-gradient-to-r from-primary/15 to-secondary/15 hover:from-primary/25 hover:to-secondary/25 border border-primary/30 text-white transition-all cursor-pointer shadow-[0_0_15px_rgba(0,242,254,0.2)] group/ai"
+            title="Mở Trợ Lý NOVA AI"
+        >
+            <div class="relative w-8 h-8 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px] text-primary animate-pulse">auto_awesome</span>
+            </div>
+            <div class="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden text-left">
+                <span class="text-[12px] font-bold text-white leading-none">NOVA AI</span>
+                <span class="text-[10px] text-primary/80 font-mono">Cinematic Co-Pilot</span>
+            </div>
+        </button>
+
+        <!-- User Profile Pill -->
+        <a
+            href="/pages/select_profile.html"
+            class="flex items-center gap-3.5 px-2 py-2 rounded-2xl hover:bg-white/[0.06] transition-colors"
+            title="Quản Lý Hồ Sơ"
+        >
+            <div class="w-9 h-9 rounded-xl p-0.5 bg-gradient-to-tr from-primary to-secondary shadow-md flex-shrink-0">
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
+                    alt="User Avatar"
+                    class="w-full h-full rounded-[10px] object-cover"
+                />
+            </div>
+            <div class="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+                <span class="text-[12px] font-bold text-white leading-tight">Alex Vance</span>
+                <span class="text-[10px] text-tertiary font-mono">4K VIP Member</span>
+            </div>
+        </a>
+    </div>
+</aside>
+
+<!-- ==================== TOP COMPACT UTILITY BAR ==================== -->
+<header
+    id="aura-top-utility-bar"
+    class="fixed top-0 left-0 md:left-20 right-0 h-16 md:h-20 px-4 md:px-8 z-40 glass-panel border-b border-white/5 flex items-center justify-between gap-4 select-none transition-all duration-300"
+>
+    <!-- Left: Mobile Brand & System Health -->
+    <div class="flex items-center gap-3">
+        <!-- Mobile Logo Trigger -->
+        <a href="/index.html" class="flex md:hidden items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-md">
+                <img src="/logo.png" alt="Aura Logo" class="w-full h-full rounded-[10px] object-cover" />
+            </div>
+            <span class="font-headline font-black text-[16px] text-white">AURA<span class="text-aura-gradient">NOVA</span></span>
+        </a>
+
+        <!-- Live Streaming Status Pill -->
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span class="text-white/80 font-mono text-[11px]">Stream 2.0 • Ultra Low Latency</span>
+        </div>
+    </div>
+
+    <!-- Center: Global Search Spotlight Input -->
+    <div class="relative flex-1 max-w-md mx-2">
+        <div
+            class="flex items-center bg-white/[0.05] hover:bg-white/[0.08] focus-within:bg-white/[0.1] border border-white/10 focus-within:border-primary/50 rounded-full px-4 py-1.5 transition-all duration-300 shadow-inner group/search"
+        >
+            <span class="material-symbols-outlined text-primary text-[19px] mr-2">search</span>
+            <input
+                id="global-search-input"
+                class="w-full bg-transparent text-white placeholder:text-on-surface-variant/70 font-body-sm text-[13px] focus:outline-none"
+                placeholder="Tìm phim, đạo diễn, 4K IMAX... (Ctrl+K)"
+                type="search"
+            />
+            <span class="hidden sm:inline px-1.5 py-0.5 rounded bg-white/10 text-white/50 text-[10px] font-mono border border-white/10">⌘K</span>
+        </div>
+    </div>
+
+    <!-- Right: Quick Actions (Help, Notifications, User) -->
+    <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        <a
+            href="/pages/help.html"
+            class="hidden sm:flex w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 text-on-surface-variant hover:text-white items-center justify-center transition-colors"
+            title="Trợ Giúp & FAQ"
+        >
+            <span class="material-symbols-outlined text-[19px]">help</span>
+        </a>
+
+        <!-- Notification Trigger -->
+        <div class="relative" id="notifications-wrapper">
+            <button
+                id="notifications-btn"
+                type="button"
+                aria-label="Notifications"
+                class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 text-on-surface-variant hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+            >
+                <span class="material-symbols-outlined text-[20px]">notifications</span>
+                <span
+                    id="notifications-badge"
+                    class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(0,242,254,1)]"
+                ></span>
+            </button>
+
+            <!-- Notifications Dropdown Panel -->
+            <div
+                id="notifications-dropdown"
+                class="absolute right-0 top-full mt-3 w-80 sm:w-96 bg-surface-container-high/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.9)] overflow-hidden transition-all duration-200 transform scale-95 opacity-0 pointer-events-none translate-y-2 z-50 select-none"
+                style="display: none;"
+            >
+                <div class="px-4 py-3 bg-surface-container/90 border-b border-white/5 flex items-center justify-between">
+                    <span class="font-headline text-[14px] font-bold text-white flex items-center gap-2">
+                        <span>Thông báo hệ thống</span>
+                        <span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-mono">3 MỚI</span>
+                    </span>
+                    <button id="notifications-mark-read-btn" class="text-[11px] text-primary hover:underline cursor-pointer">Đọc tất cả</button>
+                </div>
+                <div class="max-h-[340px] overflow-y-auto divide-y divide-white/5 text-[12px] scrollbar-thin">
+                    <a href="/pages/watch_a_film_page.html?id=neon-cyber-odyssey" class="p-3 flex items-start gap-3 hover:bg-white/[0.05] transition-colors">
+                        <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5">verified</span>
+                        <div class="flex-1">
+                            <p class="font-bold text-white">Neon Cyber Odyssey: 2099</p>
+                            <p class="text-on-surface-variant text-[11px]">Bản chuẩn IMAX 4K HDR vừa được cập nhật cho tài khoản VIP.</p>
+                        </div>
+                    </a>
+                    <a href="/pages/series_detail.html" class="p-3 flex items-start gap-3 hover:bg-white/[0.05] transition-colors">
+                        <span class="material-symbols-outlined text-secondary text-[20px] flex-shrink-0 mt-0.5">tv_gen</span>
+                        <div class="flex-1">
+                            <p class="font-bold text-white">Neural Drift: Tập Mới</p>
+                            <p class="text-on-surface-variant text-[11px]">Tập 7 đã phát sóng với âm thanh Dolby Atmos 7.1.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Profile Avatar -->
+        <a href="/pages/select_profile.html" class="flex items-center gap-1.5 p-1 rounded-full hover:bg-white/[0.06] transition-colors">
+            <div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-primary to-secondary shadow-md">
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
+                    alt="User"
+                    class="w-full h-full rounded-full object-cover"
+                />
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant text-[18px] hidden sm:inline">expand_more</span>
+        </a>
+    </div>
+</header>
+
+<!-- ==================== MOBILE FLOATING BOTTOM APP DOCK ==================== -->
+<nav
+    id="aura-mobile-bottom-dock"
+    class="md:hidden fixed bottom-3 left-3 right-3 h-16 z-50 glass-dock rounded-2xl flex items-center justify-around px-2 shadow-[0_10px_35px_rgba(0,0,0,0.9),0_0_20px_rgba(0,242,254,0.25)] border border-primary/20"
+>
+    <a href="/index.html" class="flex flex-col items-center justify-center p-2 text-primary" title="Trang Chủ">
+        <span class="material-symbols-outlined text-[22px]">grid_view</span>
+        <span class="text-[9px] font-bold">Home</span>
+    </a>
+    <a href="/pages/search_page.html" class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-white" title="Khám Phá">
+        <span class="material-symbols-outlined text-[22px]">movie</span>
+        <span class="text-[9px] font-medium">Phim 4K</span>
+    </a>
+    <a href="/pages/watch_a_film_page.html?id=neon-cyber-odyssey" class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-white" title="Rạp Chiếu">
+        <span class="material-symbols-outlined text-[22px]">theaters</span>
+        <span class="text-[9px] font-medium">Rạp Phim</span>
+    </a>
+    <a href="/pages/my_list.html" class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-white" title="Kho Phim">
+        <span class="material-symbols-outlined text-[22px]">video_library</span>
+        <span class="text-[9px] font-medium">Kho Của Tôi</span>
+    </a>
+    <button id="mobile-nova-ai-trigger" type="button" class="flex flex-col items-center justify-center p-2 text-secondary" title="Trợ Lý AI">
+        <span class="material-symbols-outlined text-[22px] animate-pulse">auto_awesome</span>
+        <span class="text-[9px] font-bold">NOVA AI</span>
+    </button>
+</nav>
+
+        <main
+            class="md:pl-20 w-full pt-20 flex-1 flex flex-col justify-center items-center px-margin-mobile md:px-margin-desktop bg-surface-container-lowest"
+        >
+            <div
+                class="flex flex-col w-full relative min-h-[calc(100vh-10rem)] justify-between items-center select-none overflow-hidden py-space-xl"
+            >
+                <!-- Atmospheric Cinematic Glows -->
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none -z-10"
+                ></div>
+                <div
+                    class="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-tertiary-container/5 rounded-full blur-[120px] pointer-events-none -z-10"
+                ></div>
+                <!-- Subtle decorative ambient framing line -->
+                <div
+                    class="w-full max-w-5xl flex items-center justify-between opacity-20 pointer-events-none px-gutter-sm mb-space-md"
+                >
+                    <span class="font-body-sm text-label-badge uppercase tracking-[0.3em] text-outline"
+                        >CineStream Experience</span
+                    >
+                    <span class="font-body-sm text-label-badge uppercase tracking-[0.3em] text-outline"
+                        >ID: CS-9082-NX</span
+                    >
+                </div>
+                <!-- Center Stage Container -->
+                <div class="w-full max-w-6xl flex flex-col items-center my-auto px-margin-mobile">
+                    <!-- Hero Headline & Sub-indicator -->
+                    <div class="flex flex-col items-center text-center mb-space-2xl">
+                        <span
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high/60 backdrop-blur-md mb-space-md"
+                        >
+                            <span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+                            <span
+                                class="font-label-badge text-label-badge uppercase tracking-widest text-on-surface-variant"
+                                >Select Persona</span
+                            >
+                        </span>
+                        <h1
+                            class="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface tracking-tight font-extrabold transition-all duration-300"
+                            id="page-heading"
+                        >
+                            Who's Watching?
+                        </h1>
+                        <p
+                            class="font-body-md text-body-md text-outline mt-space-xs transition-all duration-300"
+                            id="page-subheading"
+                        >
+                            Choose your space to access tailored cinema, continuous queue, and 4K Ultra HD.
+                        </p>
+                    </div>
+                    <!-- Profiles Flex / Grid Rack -->
+                    <div
+                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-gutter-sm md:gap-gutter-lg justify-items-center w-full max-w-5xl"
+                    >
+                        <!-- Profile 1: Alex (Master) -->
+                        <a
+                            class="profile-card group relative flex flex-col items-center w-36 sm:w-40 md:w-44 focus:outline-none transition-transform duration-300 hover:scale-105"
+                            data-path="index"
+                            data-profile="Alex"
+                            href="#"
+                        >
+                            <div
+                                class="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-xl overflow-hidden bg-surface-container-high shadow-2xl transition-all duration-300 group-hover:shadow-[0_0_35px_rgba(0, 242, 254,0.45)]"
+                            >
+                                <img
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Close up dramatic cinematic portrait of a cool protagonist with neon crimson and electric cyan dual lighting accents, dark obsidian background, 8k resolution studio still"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7dG0WWLgz6C4EODILfBKhYLsoxkI8O0JYdxgSM80lWOhkjo58H7VhQnSLQkRKnQ9j6UkmM2n_ieiNHOCMC0FdX6Hb5LGMH0Lywna0bxp80oJvAAttvh_vOZJj_vFWiIZMqcO7rljoHVZtEHVnTImOhm6r9wblqTM-ToptpBjq_Xvy7oK0S08tHN0z7ZTNz4wPVq07ie6IGWzESRIY8atAvEfYyJ31-_DRttiSf1w"
+                                />
+                                <!-- Glass sheen & vignette -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"
+                                ></div>
+                                <!-- Master Account Badge -->
+                                <div
+                                    class="absolute top-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-lowest/85 backdrop-blur-md shadow-sm"
+                                >
+                                    <span
+                                        class="material-symbols-outlined text-secondary text-[14px]"
+                                        style="font-variation-settings: &quot;FILL&quot; 1"
+                                        >star</span
+                                    >
+                                    <span
+                                        class="font-label-badge text-label-badge tracking-wider uppercase text-secondary"
+                                        >Primary</span
+                                    >
+                                </div>
+                                <!-- Edit Mode Icon Overlay -->
+                                <div
+                                    class="edit-overlay absolute inset-0 bg-surface-container-lowest/75 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center"
+                                >
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110"
+                                    >
+                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-space-md flex flex-col items-center text-center">
+                                <span
+                                    class="font-headline-sm text-headline-sm text-outline group-hover:text-on-surface font-medium transition-colors duration-200"
+                                >
+                                    Alex
+                                </span>
+                                <span class="font-body-sm text-[11px] text-outline/70 mt-0.5">Admin • UHD</span>
+                            </div>
+                        </a>
+                        <!-- Profile 2: Sarah -->
+                        <a
+                            class="profile-card group relative flex flex-col items-center w-36 sm:w-40 md:w-44 focus:outline-none transition-transform duration-300 hover:scale-105"
+                            data-path="index"
+                            data-profile="Sarah"
+                            href="#"
+                        >
+                            <div
+                                class="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-xl overflow-hidden bg-surface-container-high shadow-2xl transition-all duration-300 group-hover:shadow-[0_0_35px_rgba(255,185,95,0.4)]"
+                            >
+                                <img
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Editorial warm cinematic portrait of an expressive female filmmaker, golden hour amber rim light, subtle film grain aesthetic, moody shadows"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHwDj2ySXMGKgQG8tK22i4E-bVbvKWz8ugJNUMHkcoZlxowv3m5dhaIrUHV83GTcFoqo0Nmj2WMEaAAv6fRaTTMglUty3FnsTmwk-k0DLNmUCZGN81JDE63N54g5cDQvX562HPCwAOqRthVCb3XNALcKVdFN0qGD-7JTijpTkz3BHQHwW1RZqWj_ZVZhuTl-1SuFpmDkOFO1YwXMmf6nouzNVr9CxbJ-T5pyhBlF0"
+                                />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"
+                                ></div>
+                                <!-- Edit Mode Icon Overlay -->
+                                <div
+                                    class="edit-overlay absolute inset-0 bg-surface-container-lowest/75 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center"
+                                >
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110"
+                                    >
+                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-space-md flex flex-col items-center text-center">
+                                <span
+                                    class="font-headline-sm text-headline-sm text-outline group-hover:text-on-surface font-medium transition-colors duration-200"
+                                >
+                                    Sarah
+                                </span>
+                                <span class="font-body-sm text-[11px] text-outline/70 mt-0.5">Favorites Queue</span>
+                            </div>
+                        </a>
+                        <!-- Profile 3: Kids Safe -->
+                        <a
+                            class="profile-card group relative flex flex-col items-center w-36 sm:w-40 md:w-44 focus:outline-none transition-transform duration-300 hover:scale-105"
+                            data-path="index"
+                            data-profile="Kids"
+                            href="#"
+                        >
+                            <div
+                                class="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-xl overflow-hidden bg-surface-container-high shadow-2xl transition-all duration-300 group-hover:shadow-[0_0_35px_rgba(192,193,255,0.4)]"
+                            >
+                                <img
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    data-alt="Playful 3D animated fantasy creature with glowing vibrant purple, blue, and amber colors, Pixar style character design, friendly and whimsical aesthetic"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNAwbRcOh0M5BqQp7bm_VpXIR2Z295t5E_MSHDiI19r2dmRKCh4uZeFzabuykrz1XGQ3tkETstIg2FWTmFd6YPtvWFi4-WFfEMGbj5M6tzmKYi_1Xfnwf2Ec5D-BVrRRyK_J5CKdSabXLCV79xtvRs5EwffwYpzbXXnDjS6TeqTqwsV_Schnx973FfoPWsM7ZvZz_yAORcIyLtfCY2zNYTi6qD74q_b_0LH2PnSYs"
+                                />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"
+                                ></div>
+                                <!-- Kids Safe Protective Badge -->
+                                <div
+                                    class="absolute top-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-container/90 backdrop-blur-md shadow-sm text-on-tertiary-container"
+                                >
+                                    <span
+                                        class="material-symbols-outlined text-[12px]"
+                                        style="font-variation-settings: &quot;FILL&quot; 1"
+                                        >family_restroom</span
+                                    >
+                                    <span class="font-label-badge text-label-badge uppercase tracking-wider font-bold"
+                                        >Kids Safe</span
+                                    >
+                                </div>
+                                <!-- Edit Mode Icon Overlay -->
+                                <div
+                                    class="edit-overlay absolute inset-0 bg-surface-container-lowest/75 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center"
+                                >
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110"
+                                    >
+                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-space-md flex flex-col items-center text-center">
+                                <span
+                                    class="font-headline-sm text-headline-sm text-outline group-hover:text-on-surface font-medium transition-colors duration-200"
+                                >
+                                    Kids
+                                </span>
+                                <span class="font-body-sm text-[11px] text-outline/70 mt-0.5">PG-13 Filtered</span>
+                            </div>
+                        </a>
+                        <!-- Profile 4: Guest -->
+                        <a
+                            class="profile-card group relative flex flex-col items-center w-36 sm:w-40 md:w-44 focus:outline-none transition-transform duration-300 hover:scale-105"
+                            data-path="index"
+                            data-profile="Guest"
+                            href="#"
+                        >
+                            <div
+                                class="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-xl overflow-hidden bg-surface-container-high shadow-2xl transition-all duration-300 group-hover:shadow-[0_0_35px_rgba(255,255,255,0.25)]"
+                            >
+                                <div
+                                    class="w-full h-full bg-gradient-to-br from-surface-bright via-surface-container to-surface-container-lowest flex items-center justify-center transition-transform duration-500 group-hover:scale-110"
+                                >
+                                    <span
+                                        class="material-symbols-outlined text-outline-variant text-[56px] group-hover:text-on-surface transition-colors duration-300"
+                                    >
+                                        account_circle
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"
+                                ></div>
+                                <!-- Edit Mode Icon Overlay -->
+                                <div
+                                    class="edit-overlay absolute inset-0 bg-surface-container-lowest/75 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center"
+                                >
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110"
+                                    >
+                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-space-md flex flex-col items-center text-center">
+                                <span
+                                    class="font-headline-sm text-headline-sm text-outline group-hover:text-on-surface font-medium transition-colors duration-200"
+                                >
+                                    Guest
+                                </span>
+                                <span class="font-body-sm text-[11px] text-outline/70 mt-0.5">Temporary Session</span>
+                            </div>
+                        </a>
+                        <!-- Card 5: Add Profile -->
+                        <button
+                            class="group relative flex flex-col items-center w-36 sm:w-40 md:w-44 focus:outline-none transition-transform duration-300 hover:scale-105 cursor-pointer"
+                            id="add-profile-btn"
+                            type="button"
+                        >
+                            <div
+                                class="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-xl bg-surface-container/60 backdrop-blur-sm flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-surface-container-high group-hover:shadow-[0_0_30px_rgba(0, 242, 254,0.25)]"
+                            >
+                                <!-- Ambient icon disc -->
+                                <div
+                                    class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center text-outline group-hover:text-on-primary-container group-hover:bg-primary-container transition-all duration-300 shadow-md"
+                                >
+                                    <span class="material-symbols-outlined text-[28px]">add</span>
+                                </div>
+                            </div>
+                            <div class="mt-space-md flex flex-col items-center text-center">
+                                <span
+                                    class="font-headline-sm text-headline-sm text-outline group-hover:text-on-surface font-medium transition-colors duration-200"
+                                >
+                                    Add Profile
+                                </span>
+                                <span class="font-body-sm text-[11px] text-outline/70 mt-0.5">Up to 5 accounts</span>
+                            </div>
+                        </button>
+                    </div>
+                    <!-- Secondary Action: Manage Profiles Toggle -->
+                    <div class="mt-space-2xl flex flex-col sm:flex-row items-center gap-space-md">
+                        <button
+                            class="cursor-pointer group flex items-center gap-2 px-8 py-3 rounded-lg bg-surface-container-high/80 hover:bg-surface-bright text-outline hover:text-on-surface font-label-lg text-label-lg uppercase tracking-widest transition-all duration-200 shadow-md hover:shadow-xl focus:outline-none active:scale-95"
+                            id="manage-toggle-btn"
+                            type="button"
+                        >
+                            <span class="material-symbols-outlined text-[18px]" id="manage-icon">tune</span>
+                            <span id="manage-text">Manage Profiles</span>
+                        </button>
+                        <!-- Account Switcher Auxiliary Quick Link -->
+                        <a
+                            class="cursor-pointer flex items-center gap-1 px-5 py-3 rounded-lg text-outline hover:text-on-surface font-label-md text-label-md tracking-wider transition-colors duration-200"
+                            data-path="account-settings"
+                            href="#"
+                        >
+                            <span class="material-symbols-outlined text-[16px]">lock</span>
+                            <span>Account PIN & Security</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Subtle Bottom Bar: Language & Quality Status -->
+                <div
+                    class="w-full max-w-4xl flex flex-col sm:flex-row items-center justify-between gap-space-sm px-margin-mobile pt-space-lg"
+                >
+                    <!-- Language Selector Pill -->
+                    <div
+                        class="flex items-center gap-1.5 p-1 rounded-full bg-surface-container-high/60 backdrop-blur-md"
+                    >
+                        <button
+                            class="lang-btn active px-3 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-badge text-label-badge transition-all"
+                            type="button"
+                        >
+                            EN
+                        </button>
+                        <button
+                            class="lang-btn px-3 py-1 rounded-full text-outline hover:text-on-surface font-label-badge text-label-badge transition-all"
+                            type="button"
+                        >
+                            VI
+                        </button>
+                        <button
+                            class="lang-btn px-3 py-1 rounded-full text-outline hover:text-on-surface font-label-badge text-label-badge transition-all"
+                            type="button"
+                        >
+                            ES
+                        </button>
+                        <button
+                            class="lang-btn px-3 py-1 rounded-full text-outline hover:text-on-surface font-label-badge text-label-badge transition-all"
+                            type="button"
+                        >
+                            FR
+                        </button>
+                    </div>
+                    <!-- Streaming Specs Indicators -->
+                    <div class="flex items-center gap-space-sm text-outline/80">
+                        <span
+                            class="px-2 py-0.5 rounded bg-surface-container-high font-label-badge text-label-badge text-outline"
+                            >4K HDR</span
+                        >
+                        <span
+                            class="px-2 py-0.5 rounded bg-surface-container-high font-label-badge text-label-badge text-outline"
+                            >DOLBY ATMOS</span
+                        >
+                        <span
+                            class="px-2 py-0.5 rounded bg-surface-container-high font-label-badge text-label-badge text-outline"
+                            >SPATIAL AUDIO</span
+                        >
+                    </div>
+                </div>
+                <!-- Interactive Add Profile Modal (Hidden by default) -->
+                <div
+                    class="fixed inset-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl flex items-center justify-center p-gutter-sm opacity-0 pointer-events-none transition-opacity duration-300"
+                    id="add-modal"
+                >
+                    <div
+                        class="relative w-full max-w-lg bg-surface-container rounded-xl p-space-xl shadow-2xl flex flex-col transform scale-95 transition-transform duration-300"
+                        id="modal-card"
+                    >
+                        <div class="flex items-center justify-between pb-space-md">
+                            <div>
+                                <h2 class="font-headline-lg text-headline-lg text-on-surface">Create New Profile</h2>
+                                <p class="font-body-sm text-body-sm text-outline mt-1">
+                                    Add a profile for another viewer in your household.
+                                </p>
+                            </div>
+                            <button
+                                class="w-8 h-8 rounded-full bg-surface-container-high text-outline hover:text-on-surface flex items-center justify-center transition-colors"
+                                id="close-modal-btn"
+                                type="button"
+                            >
+                                <span class="material-symbols-outlined text-[18px]">close</span>
+                            </button>
+                        </div>
+                        <form
+                            class="flex flex-col gap-space-lg mt-space-md"
+                            id="new-profile-form"
+                            onsubmit="event.preventDefault();"
+                        >
+                            <div class="flex items-center gap-space-md">
+                                <div
+                                    class="w-20 h-20 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary-container shrink-0 shadow-inner"
+                                >
+                                    <span class="material-symbols-outlined text-[40px]">face</span>
+                                </div>
+                                <div class="flex-1">
+                                    <label
+                                        class="font-label-md text-label-md text-outline block mb-1 uppercase tracking-wider"
+                                        for="profile-name-input"
+                                        >Profile Name</label
+                                    >
+                                    <input
+                                        class="w-full bg-surface-container-lowest text-on-surface px-4 py-3 rounded-lg font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary-container placeholder:text-outline/40"
+                                        id="profile-name-input"
+                                        placeholder="e.g. Liam, Maya"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+                            <!-- Kids Toggle Option -->
+                            <div
+                                class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low"
+                            >
+                                <div class="flex flex-col">
+                                    <span class="font-label-lg text-label-lg text-on-surface">Kids Profile?</span>
+                                    <span class="font-body-sm text-body-sm text-outline"
+                                        >Restricts catalog to TV-PG and under.</span
+                                    >
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input class="sr-only peer" id="is-kids-check" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"
+                                    ></div>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-end gap-space-sm mt-space-sm">
+                                <button
+                                    class="px-6 py-2.5 rounded-lg text-outline hover:text-on-surface font-label-md text-label-md transition-colors"
+                                    id="cancel-modal-btn"
+                                    type="button"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    class="px-8 py-2.5 rounded-lg bg-primary-container hover:bg-primary-container/90 text-on-primary-container font-label-md text-label-md transition-all shadow-[0_0_20px_rgba(0, 242, 254,0.3)] active:scale-95"
+                                    id="save-profile-btn"
+                                    type="submit"
+                                >
+                                    Continue
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Micro-interaction Logic -->
+                <script>
+                    (function () {
+                        let isManageMode = false;
+                        const manageBtn = document.getElementById("manage-toggle-btn");
+                        const manageText = document.getElementById("manage-text");
+                        const manageIcon = document.getElementById("manage-icon");
+                        const heading = document.getElementById("page-heading");
+                        const subheading = document.getElementById("page-subheading");
+                        const overlays = document.querySelectorAll(".edit-overlay");
+                        const profileCards = document.querySelectorAll(".profile-card");
+
+                        const addBtn = document.getElementById("add-profile-btn");
+                        const addModal = document.getElementById("add-modal");
+                        const modalCard = document.getElementById("modal-card");
+                        const closeModalBtn = document.getElementById("close-modal-btn");
+                        const cancelModalBtn = document.getElementById("cancel-modal-btn");
+                        const saveProfileBtn = document.getElementById("save-profile-btn");
+                        const profileInput = document.getElementById("profile-name-input");
+                        const langBtns = document.querySelectorAll(".lang-btn");
+
+                        // Manage Profiles Mode Toggle
+                        if (manageBtn) {
+                            manageBtn.addEventListener("click", () => {
+                                isManageMode = !isManageMode;
+                                if (isManageMode) {
+                                    manageText.textContent = "Done";
+                                    manageIcon.textContent = "check";
+                                    manageBtn.classList.add(
+                                        "bg-primary-container",
+                                        "text-on-primary-container",
+                                        "shadow-[0_0_20px_rgba(0, 242, 254,0.4)]"
+                                    );
+                                    manageBtn.classList.remove("bg-surface-container-high/80", "text-outline");
+                                    heading.textContent = "Manage Profiles";
+                                    subheading.textContent =
+                                        "Select any profile icon to edit name, rating locks, or visual avatars.";
+                                    overlays.forEach((el) => {
+                                        el.classList.remove("opacity-0", "pointer-events-none");
+                                        el.classList.add("opacity-100", "pointer-events-auto");
+                                    });
+                                } else {
+                                    manageText.textContent = "Manage Profiles";
+                                    manageIcon.textContent = "tune";
+                                    manageBtn.classList.remove(
+                                        "bg-primary-container",
+                                        "text-on-primary-container",
+                                        "shadow-[0_0_20px_rgba(0, 242, 254,0.4)]"
+                                    );
+                                    manageBtn.classList.add("bg-surface-container-high/80", "text-outline");
+                                    heading.textContent = "Who's Watching?";
+                                    subheading.textContent =
+                                        "Choose your space to access tailored cinema, continuous queue, and 4K Ultra HD.";
+                                    overlays.forEach((el) => {
+                                        el.classList.add("opacity-0", "pointer-events-none");
+                                        el.classList.remove("opacity-100", "pointer-events-auto");
+                                    });
+                                }
+                            });
+                        }
+
+                        // Card Selection Feedback & Storage
+                        profileCards.forEach((card) => {
+                            card.addEventListener("click", (e) => {
+                                if (isManageMode) {
+                                    e.preventDefault();
+                                    const profileName = card.getAttribute("data-profile");
+                                    alert("Editing profile options for: " + profileName);
+                                    return;
+                                }
+                                e.preventDefault();
+                                const profileName = card.getAttribute("data-profile") || "Alex";
+                                const img = card.querySelector("img");
+                                const avatar = img ? img.src : "";
+                                const isKids = profileName.toLowerCase().includes("kid");
+                                try {
+                                    localStorage.setItem("cinestream_active_profile", JSON.stringify({
+                                        id: "profile-" + profileName.toLowerCase(),
+                                        name: profileName,
+                                        avatar: avatar,
+                                        isKids: isKids
+                                    }));
+                                } catch (err) {}
+                                card.classList.add("scale-90", "opacity-80");
+                                setTimeout(() => {
+                                    window.location.href = "/index.html";
+                                }, 200);
+                            });
+                        });
+
+                        // Modal Triggers
+                        function openModal() {
+                            addModal.classList.remove("opacity-0", "pointer-events-none");
+                            modalCard.classList.remove("scale-95");
+                            modalCard.classList.add("scale-100");
+                            if (profileInput) profileInput.focus();
+                        }
+
+                        function closeModal() {
+                            modalCard.classList.remove("scale-100");
+                            modalCard.classList.add("scale-95");
+                            addModal.classList.add("opacity-0", "pointer-events-none");
+                            if (profileInput) profileInput.value = "";
+                        }
+
+                        if (addBtn) addBtn.addEventListener("click", openModal);
+                        if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
+                        if (cancelModalBtn) cancelModalBtn.addEventListener("click", closeModal);
+
+                        // Close when clicking backdrop outside modal-card
+                        if (addModal) {
+                            addModal.addEventListener("click", (e) => {
+                                if (e.target === addModal || !e.target.closest("#modal-card")) {
+                                    closeModal();
+                                }
+                            });
+                        }
+
+                        // Close modal on Escape key
+                        document.addEventListener("keydown", (e) => {
+                            if (e.key === "Escape") {
+                                closeModal();
+                            }
+                        });
+
+                        if (saveProfileBtn) {
+                            saveProfileBtn.addEventListener("click", (e) => {
+                                e.preventDefault();
+                                const name = profileInput.value.trim();
+                                if (name) {
+                                    closeModal();
+                                } else {
+                                    profileInput.focus();
+                                }
+                            });
+                        }
+
+                        // Language Switcher Toggle
+                        langBtns.forEach((btn) => {
+                            btn.addEventListener("click", () => {
+                                langBtns.forEach((b) => {
+                                    b.classList.remove("bg-surface-container-highest", "text-on-surface");
+                                    b.classList.add("text-outline");
+                                });
+                                btn.classList.add("bg-surface-container-highest", "text-on-surface");
+                                btn.classList.remove("text-outline");
+                            });
+                        });
+                    })();
+                </script>
+            </div>
+        </main>
+        <!-- ==================== AURA NOVA BRAND FOOTER ==================== -->
+<footer class="w-full bg-[#05060b] text-on-surface-variant py-space-xl md:py-space-2xl border-t border-white/5 relative overflow-hidden select-none">
+    <!-- Ambient glow in footer -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[180px] bg-primary/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-[1680px] mx-auto px-4 md:px-8 relative z-10">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-space-lg pb-space-lg border-b border-white/5">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                    <img src="/logo.png" alt="Aura Logo" class="w-full h-full rounded-[10px] object-cover" />
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-headline font-black text-white text-base tracking-tight">AURA <span class="text-aura-gradient">NOVA</span></span>
+                    <span class="text-[9px] text-primary font-mono uppercase tracking-widest font-bold">Next-Gen Cinema Ecosystem</span>
+                </div>
+            </div>
+
+            <!-- Server Status & Bitrate Indicator -->
+            <div class="flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <span class="text-primary font-mono font-medium text-[11px]">Stream 2.0 Engine Online</span>
+                <span class="text-white/20">|</span>
+                <span class="text-white/60 font-mono text-[11px]">4K Ultra-Low Latency</span>
+            </div>
+
+            <div class="flex items-center gap-space-lg">
+                <a aria-label="Rạp Chiếu" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/watch_a_film_page.html"><span class="material-symbols-outlined text-[22px]">theaters</span></a>
+                <a aria-label="Kho Phim" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/my_list.html"><span class="material-symbols-outlined text-[22px]">video_library</span></a>
+                <a aria-label="Gói Cước" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/pricing.html"><span class="material-symbols-outlined text-[22px]">workspace_premium</span></a>
+                <a aria-label="Hỗ Trợ" class="text-on-surface-variant hover:text-primary transition-colors" href="/pages/help.html"><span class="material-symbols-outlined text-[22px]">help</span></a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-space-md gap-x-gutter-lg mb-space-lg font-body-sm text-xs">
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/help.html">Âm Thanh Vòm Dolby Atmos</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html">Trung Tâm Media 4K</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html#privacy">Chính Sách Bảo Mật</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/help.html">Trung Tâm Trợ Giúp</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html">Thông Tin Tập Đoàn</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html#terms">Điều Khoản Dịch Vụ</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/pricing.html">Gói Cước &amp; Hội Viên VIP</a>
+                <a class="hover:text-primary transition-colors" href="/pages/contact.html">Liên Hệ Kỹ Thuật</a>
+                <a class="hover:text-primary transition-colors" href="/pages/select_profile.html">Hồ Sơ Người Xem</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-primary transition-colors" href="/pages/search_page.html?type=movie">Danh Mục Phim Chiếu Rạp</a>
+                <a class="hover:text-primary transition-colors" href="/pages/series_detail.html">Series Độc Quyền AURA</a>
+                <a class="hover:text-primary transition-colors" href="/pages/about.html#legal">Giấy Phép Bản Quyền</a>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md pt-space-md border-t border-white/5">
+            <a class="px-4 py-1.5 rounded-full font-mono text-[11px] bg-white/[0.04] text-white hover:bg-primary hover:text-black border border-white/10 transition-all" href="/pages/help.html">
+                AURA NOVA SERVICE CENTER
+            </a>
+            <p class="font-mono text-[10px] text-on-surface-variant/70 uppercase tracking-widest">
+                © 2026 AURA NOVA CINEMA ENTERTAINMENT INC. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- ==================== NOVA AI CINEMATIC CO-PILOT WIDGET ==================== -->
+<div id="nova-ai-widget" class="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 select-none">
+    <!-- Chat Drawer Card -->
+    <div
+        id="nova-ai-drawer"
+        class="absolute bottom-[calc(100%+14px)] right-0 w-[340px] sm:w-[380px] max-w-[calc(100vw-2rem)] h-[460px] max-h-[85vh] bg-[#0c1022]/95 backdrop-blur-2xl border border-primary/30 rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.9),0_0_25px_rgba(0,242,254,0.25)] flex flex-col overflow-hidden transition-all duration-300 transform scale-95 opacity-0 pointer-events-none translate-y-4"
+        style="display: none;"
+    >
+        <!-- Header -->
+        <div class="px-4 py-3.5 bg-white/[0.04] border-b border-white/10 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-[0_0_12px_rgba(0,242,254,0.5)]">
+                    <span class="material-symbols-outlined text-[16px] text-black">auto_awesome</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-headline font-bold text-white text-[13px] leading-tight flex items-center gap-1.5">
+                        <span>NOVA AI</span>
+                        <span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary text-[9px] font-mono">CO-PILOT</span>
+                    </span>
+                    <span class="text-[10px] text-primary/80 font-mono">Trợ lý điện ảnh thông minh</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-1">
+                <button id="nova-ai-clear-btn" class="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center text-on-surface-variant hover:text-white transition-colors cursor-pointer" title="Làm mới hội thoại" type="button">
+                    <span class="material-symbols-outlined text-[16px]">refresh</span>
+                </button>
+                <button id="nova-ai-close-btn" class="w-7 h-7 rounded-full hover:bg-white/10 flex items-center justify-center text-on-surface-variant hover:text-white transition-colors cursor-pointer" title="Đóng" type="button">
+                    <span class="material-symbols-outlined text-[18px]">close</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Stream -->
+        <div id="nova-ai-messages" class="p-4 flex flex-col gap-3 flex-1 min-h-0 overflow-y-auto text-xs scrollbar-thin">
+            <div class="flex items-start gap-2.5">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center flex-shrink-0 shadow-md">
+                    <span class="material-symbols-outlined text-[15px] text-black">auto_awesome</span>
+                </div>
+                <div class="bg-surface-container-high border border-white/10 p-3 rounded-2xl rounded-tl-sm max-w-[85%] text-xs leading-relaxed text-white shadow-sm">
+                    Xin chào! Tôi là **NOVA AI**, trợ lý rạp chiếu AURA NOVA. Tôi có thể phân tích và đề xuất phim theo tâm trạng hoặc tiêu chuẩn kỹ thuật (4K, IMAX, Dolby Atmos). Bạn muốn xem gì hôm nay? ✨
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Mood Chips -->
+        <div class="px-3 pb-2 flex flex-wrap gap-1.5 flex-shrink-0">
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Gợi ý phim Sci-Fi viễn tưởng hại não">
+                🚀 Sci-Fi Hại Não
+            </button>
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Tìm bom tấn hành động xả stress đỉnh cao">
+                💥 Hành Động
+            </button>
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Gợi ý phim du hành không gian vũ trụ IMAX">
+                🌌 Vũ Trụ
+            </button>
+            <button type="button" class="nova-quick-chip px-2.5 py-1 rounded-full bg-white/[0.05] hover:bg-primary hover:text-black text-on-surface-variant text-[11px] font-medium border border-white/5 transition-colors cursor-pointer" data-prompt="Chọn ngẫu nhiên 1 phim đỉnh nhất tối nay">
+                🎲 Chọn Ngẫu Nhiên
+            </button>
+        </div>
+
+        <!-- Chat Input Form -->
+        <form id="nova-ai-form" class="p-3 bg-white/[0.03] border-t border-white/10 flex items-center gap-2 flex-shrink-0">
+            <input
+                id="nova-ai-input"
+                class="flex-1 bg-white/[0.06] text-white px-3.5 py-2 rounded-full text-xs border border-white/10 focus:border-primary focus:outline-none placeholder:text-on-surface-variant/60"
+                placeholder="Hỏi NOVA AI về phim, diễn viên..."
+                type="text"
+                autocomplete="off"
+            />
+            <button
+                type="submit"
+                class="w-8 h-8 rounded-full bg-primary hover:bg-white text-black flex items-center justify-center transition-colors cursor-pointer flex-shrink-0 shadow-md"
+                title="Gửi"
+            >
+                <span class="material-symbols-outlined text-[16px] ml-0.5">send</span>
+            </button>
+        </form>
+    </div>
+
+    <!-- The Holographic Energy Orb Button -->
+    <button
+        id="nova-ai-launcher"
+        type="button"
+        class="relative w-14 h-14 rounded-full bg-gradient-to-tr from-primary via-secondary to-tertiary p-0.5 shadow-[0_0_30px_rgba(0,242,254,0.6)] hover:shadow-[0_0_45px_rgba(0,242,254,0.9)] transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer group"
+        title="Trợ Lý Điện Ảnh NOVA AI"
+    >
+        <div class="w-full h-full rounded-full bg-[#07080E] flex items-center justify-center relative overflow-hidden">
+            <!-- Breathing radial glow in center -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 animate-pulse"></div>
+            <span class="material-symbols-outlined text-[26px] text-primary group-hover:rotate-12 transition-transform duration-300 relative z-10">auto_awesome</span>
+        </div>
+    </button>
+</div>
+
+    </body>
+</html>

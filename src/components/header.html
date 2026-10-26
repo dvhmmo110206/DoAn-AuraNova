@@ -1,0 +1,278 @@
+<!-- ==================== AURA NOVA DESKTOP LEFT SIDEBAR RAIL ==================== -->
+<aside
+    id="aura-sidebar-rail"
+    class="hidden md:flex fixed top-0 left-0 h-screen w-20 hover:w-64 transition-all duration-300 ease-out z-50 glass-dock border-r border-white/10 flex-col justify-between py-6 px-3.5 group select-none shadow-[8px_0_35px_rgba(0,0,0,0.85)] overflow-x-hidden"
+>
+    <!-- Top Brand Logo -->
+    <div class="flex flex-col gap-6">
+        <a href="/index.html" class="flex items-center gap-3.5 px-2 py-1 overflow-hidden" title="AURA NOVA Cinema">
+            <div class="w-11 h-11 flex-shrink-0 rounded-2xl bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-[0_0_20px_rgba(0,242,254,0.6)]">
+                <img src="/logo.png" alt="Aura Nova Logo" class="w-full h-full rounded-[14px] object-cover bg-surface" />
+            </div>
+            <div class="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+                <span class="font-headline font-extrabold text-[18px] tracking-tight text-white leading-tight">
+                    AURA <span class="text-aura-gradient">NOVA</span>
+                </span>
+                <span class="text-[9px] font-mono tracking-widest text-primary uppercase -mt-0.5 font-bold">
+                    Cinema OS 3.0
+                </span>
+            </div>
+        </a>
+
+        <!-- Main Navigation Links -->
+        <nav class="flex flex-col gap-2 mt-2" data-active-classes="bg-primary/20 text-primary border-primary/40 shadow-[0_0_20px_rgba(0,242,254,0.35)]">
+            <a
+                href="/index.html"
+                data-path="home"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Trang Chủ (Home)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-primary flex-shrink-0">grid_view</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Trang Chủ
+                </span>
+            </a>
+
+            <a
+                href="/pages/search_page.html"
+                data-path="movies"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Kho Phim 4K (Movies)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-secondary flex-shrink-0">movie</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Kho Phim 4K
+                </span>
+            </a>
+
+            <a
+                href="/pages/series_detail.html"
+                data-path="series"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Series Độc Quyền"
+            >
+                <span class="material-symbols-outlined text-[24px] text-tertiary flex-shrink-0">tv_gen</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Series Nguyên Bản
+                </span>
+            </a>
+
+            <a
+                href="/pages/watch_a_film_page.html?id=neon-cyber-odyssey"
+                data-path="theater"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Rạp Chiếu IMAX (Cinema)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-primary flex-shrink-0">theaters</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Rạp Trực Tuyến
+                </span>
+            </a>
+
+            <a
+                href="/pages/my_list.html"
+                data-path="my-list"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav relative"
+                title="Kho Lưu Trữ (My Vault)"
+            >
+                <div class="relative flex-shrink-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[24px] text-secondary flex-shrink-0">video_library</span>
+                    <span class="watchlist-dot-badge hidden absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary border-2 border-[#0a0d18] shadow-[0_0_8px_rgba(0,242,254,1)]"></span>
+                </div>
+                <div class="flex items-center justify-between flex-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+                    <span class="font-label-lg text-[13px] font-semibold">Kho Của Tôi</span>
+                    <span class="watchlist-count-badge hidden ml-2 px-2 py-0.5 rounded-full text-[10px] bg-primary text-black font-bold font-mono"></span>
+                </div>
+            </a>
+
+            <a
+                href="/pages/pricing.html"
+                data-path="pricing"
+                class="flex items-center gap-4 px-3.5 py-3 rounded-2xl text-on-surface-variant hover:text-white hover:bg-white/[0.08] border border-transparent transition-all duration-200 group/nav"
+                title="Hội Viên VIP (Lounge)"
+            >
+                <span class="material-symbols-outlined text-[24px] text-amber-400 flex-shrink-0">workspace_premium</span>
+                <span class="font-label-lg text-[13px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    Gói Hội Viên VIP
+                </span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Bottom Sidebar Section (NOVA AI trigger & Profile) -->
+    <div class="flex flex-col gap-3 pt-4 border-t border-white/5">
+        <!-- Quick AI Launcher Button -->
+        <button
+            id="sidebar-nova-ai-btn"
+            type="button"
+            class="flex items-center gap-4 px-3 py-2.5 rounded-2xl bg-gradient-to-r from-primary/15 to-secondary/15 hover:from-primary/25 hover:to-secondary/25 border border-primary/30 text-white transition-all cursor-pointer shadow-[0_0_15px_rgba(0,242,254,0.2)] group/ai"
+            title="Mở Trợ Lý NOVA AI"
+        >
+            <div class="relative w-8 h-8 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px] text-primary animate-pulse">auto_awesome</span>
+            </div>
+            <div class="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden text-left">
+                <span class="text-[12px] font-bold text-white leading-none">NOVA AI</span>
+                <span class="text-[10px] text-primary/80 font-mono">Cinematic Co-Pilot</span>
+            </div>
+        </button>
+
+        <!-- User Profile Pill -->
+        <a
+            href="/pages/select_profile.html"
+            class="flex items-center gap-3.5 px-2 py-2 rounded-2xl hover:bg-white/[0.06] transition-colors"
+            title="Quản Lý Hồ Sơ"
+        >
+            <div class="w-9 h-9 rounded-xl p-0.5 bg-gradient-to-tr from-primary to-secondary shadow-md flex-shrink-0">
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
+                    alt="User Avatar"
+                    class="w-full h-full rounded-[10px] object-cover"
+                />
+            </div>
+            <div class="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+                <span class="text-[12px] font-bold text-white leading-tight">Alex Vance</span>
+                <span class="text-[10px] text-tertiary font-mono">4K VIP Member</span>
+            </div>
+        </a>
+    </div>
+</aside>
+
+<!-- ==================== TOP COMPACT UTILITY BAR ==================== -->
+<header
+    id="aura-top-utility-bar"
+    class="fixed top-0 left-0 md:left-20 right-0 h-16 md:h-20 px-4 md:px-8 z-40 glass-panel border-b border-white/5 flex items-center justify-between gap-4 select-none transition-all duration-300"
+>
+    <!-- Left: Mobile Brand & System Health -->
+    <div class="flex items-center gap-3">
+        <!-- Mobile Logo Trigger -->
+        <a href="/index.html" class="flex md:hidden items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-md">
+                <img src="/logo.png" alt="Aura Logo" class="w-full h-full rounded-[10px] object-cover" />
+            </div>
+            <span class="font-headline font-black text-[16px] text-white">AURA<span class="text-aura-gradient">NOVA</span></span>
+        </a>
+
+        <!-- Live Streaming Status Pill -->
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span class="text-white/80 font-mono text-[11px]">Stream 2.0 • Ultra Low Latency</span>
+        </div>
+    </div>
+
+    <!-- Center: Global Search Spotlight Input -->
+    <div class="relative flex-1 max-w-md mx-2">
+        <div
+            class="flex items-center bg-white/[0.05] hover:bg-white/[0.08] focus-within:bg-white/[0.1] border border-white/10 focus-within:border-primary/50 rounded-full px-4 py-1.5 transition-all duration-300 shadow-inner group/search"
+        >
+            <span class="material-symbols-outlined text-primary text-[19px] mr-2">search</span>
+            <input
+                id="global-search-input"
+                class="w-full bg-transparent text-white placeholder:text-on-surface-variant/70 font-body-sm text-[13px] focus:outline-none"
+                placeholder="Tìm phim, đạo diễn, 4K IMAX... (Ctrl+K)"
+                type="search"
+            />
+            <span class="hidden sm:inline px-1.5 py-0.5 rounded bg-white/10 text-white/50 text-[10px] font-mono border border-white/10">⌘K</span>
+        </div>
+    </div>
+
+    <!-- Right: Quick Actions (Help, Notifications, User) -->
+    <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        <a
+            href="/pages/help.html"
+            class="hidden sm:flex w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 text-on-surface-variant hover:text-white items-center justify-center transition-colors"
+            title="Trợ Giúp & FAQ"
+        >
+            <span class="material-symbols-outlined text-[19px]">help</span>
+        </a>
+
+        <!-- Notification Trigger -->
+        <div class="relative" id="notifications-wrapper">
+            <button
+                id="notifications-btn"
+                type="button"
+                aria-label="Notifications"
+                class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 text-on-surface-variant hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+            >
+                <span class="material-symbols-outlined text-[20px]">notifications</span>
+                <span
+                    id="notifications-badge"
+                    class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(0,242,254,1)]"
+                ></span>
+            </button>
+
+            <!-- Notifications Dropdown Panel -->
+            <div
+                id="notifications-dropdown"
+                class="absolute right-0 top-full mt-3 w-80 sm:w-96 bg-surface-container-high/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.9)] overflow-hidden transition-all duration-200 transform scale-95 opacity-0 pointer-events-none translate-y-2 z-50 select-none"
+                style="display: none;"
+            >
+                <div class="px-4 py-3 bg-surface-container/90 border-b border-white/5 flex items-center justify-between">
+                    <span class="font-headline text-[14px] font-bold text-white flex items-center gap-2">
+                        <span>Thông báo hệ thống</span>
+                        <span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-mono">3 MỚI</span>
+                    </span>
+                    <button id="notifications-mark-read-btn" class="text-[11px] text-primary hover:underline cursor-pointer">Đọc tất cả</button>
+                </div>
+                <div class="max-h-[340px] overflow-y-auto divide-y divide-white/5 text-[12px] scrollbar-thin">
+                    <a href="/pages/watch_a_film_page.html?id=neon-cyber-odyssey" class="p-3 flex items-start gap-3 hover:bg-white/[0.05] transition-colors">
+                        <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5">verified</span>
+                        <div class="flex-1">
+                            <p class="font-bold text-white">Neon Cyber Odyssey: 2099</p>
+                            <p class="text-on-surface-variant text-[11px]">Bản chuẩn IMAX 4K HDR vừa được cập nhật cho tài khoản VIP.</p>
+                        </div>
+                    </a>
+                    <a href="/pages/series_detail.html" class="p-3 flex items-start gap-3 hover:bg-white/[0.05] transition-colors">
+                        <span class="material-symbols-outlined text-secondary text-[20px] flex-shrink-0 mt-0.5">tv_gen</span>
+                        <div class="flex-1">
+                            <p class="font-bold text-white">Neural Drift: Tập Mới</p>
+                            <p class="text-on-surface-variant text-[11px]">Tập 7 đã phát sóng với âm thanh Dolby Atmos 7.1.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Profile Avatar -->
+        <a href="/pages/select_profile.html" class="flex items-center gap-1.5 p-1 rounded-full hover:bg-white/[0.06] transition-colors">
+            <div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-primary to-secondary shadow-md">
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150"
+                    alt="User"
+                    class="w-full h-full rounded-full object-cover"
+                />
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant text-[18px] hidden sm:inline">expand_more</span>
+        </a>
+    </div>
+</header>
+
+<!-- ==================== MOBILE FLOATING BOTTOM APP DOCK ==================== -->
+<nav
+    id="aura-mobile-bottom-dock"
+    class="md:hidden fixed bottom-3 left-3 right-3 h-16 z-50 glass-dock rounded-2xl flex items-center justify-around px-2 shadow-[0_10px_35px_rgba(0,0,0,0.9),0_0_20px_rgba(0,242,254,0.25)] border border-primary/20"
+>
+    <a href="/index.html" class="flex flex-col items-center justify-center p-2 text-primary" title="Trang Chủ">
+        <span class="material-symbols-outlined text-[22px]">grid_view</span>
+        <span class="text-[9px] font-bold">Home</span>
+    </a>
+    <a href="/pages/search_page.html" class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-white" title="Khám Phá">
+        <span class="material-symbols-outlined text-[22px]">movie</span>
+        <span class="text-[9px] font-medium">Phim 4K</span>
+    </a>
+    <a href="/pages/watch_a_film_page.html?id=neon-cyber-odyssey" class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-white" title="Rạp Chiếu">
+        <span class="material-symbols-outlined text-[22px]">theaters</span>
+        <span class="text-[9px] font-medium">Rạp Phim</span>
+    </a>
+    <a href="/pages/my_list.html" class="flex flex-col items-center justify-center p-2 text-on-surface-variant hover:text-white" title="Kho Phim">
+        <span class="material-symbols-outlined text-[22px]">video_library</span>
+        <span class="text-[9px] font-medium">Kho Của Tôi</span>
+    </a>
+    <button id="mobile-nova-ai-trigger" type="button" class="flex flex-col items-center justify-center p-2 text-secondary" title="Trợ Lý AI">
+        <span class="material-symbols-outlined text-[22px] animate-pulse">auto_awesome</span>
+        <span class="text-[9px] font-bold">NOVA AI</span>
+    </button>
+</nav>
